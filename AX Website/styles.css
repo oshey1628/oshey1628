@@ -1296,6 +1296,17 @@ h3 {
   display: block;
 }
 
+.theme-health .journey-visual--image {
+  padding: 10px;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(255,255,255,0.16), transparent 24%),
+    linear-gradient(135deg, rgba(88, 78, 128, 0.55), rgba(42, 39, 64, 0.52));
+}
+
+.theme-health .journey-visual--image img {
+  border-radius: 18px;
+}
+
 .journey-visual--tbd {
   display: grid;
   place-items: center;
