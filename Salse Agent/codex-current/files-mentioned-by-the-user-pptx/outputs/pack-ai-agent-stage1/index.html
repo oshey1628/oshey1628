@@ -1,0 +1,2311 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>팩건강보험 AI 맞춤설계 1단계</title>
+    <link rel="stylesheet" href="assets/fonts/noto-sans-kr.css" />
+    <style>
+      :root {
+        --blue: #1789ff;
+        --blue-deep: #006ff2;
+        --blue-soft: #eaf5ff;
+        --line: #d9e1ea;
+        --text: #161822;
+        --muted: #697383;
+        --bg: #f3f8ff;
+        --white: #ffffff;
+        --app-safe-top: env(safe-area-inset-top, 0px);
+        --app-safe-bottom: env(safe-area-inset-bottom, 0px);
+        --app-viewport-height: 100svh;
+      }
+
+      @supports (height: 100dvh) {
+        :root {
+          --app-viewport-height: 100dvh;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      strong,
+      b {
+        font-weight: 400;
+      }
+
+      html,
+      body,
+      button,
+      input {
+        font-family: "Noto Sans KR", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        margin: 0;
+        min-height: var(--app-viewport-height);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #edf7ff 0%, #ffffff 100%);
+        font-family: "Noto Sans KR", sans-serif;
+        color: var(--text);
+        padding: 0;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .stage {
+        --header-height: 96px;
+        --cta-height: 216px;
+        width: min(100vw, 430px);
+        height: min(var(--app-viewport-height), 932px);
+        min-height: 720px;
+        background: var(--white);
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        box-shadow: 0 24px 80px rgba(15, 67, 125, 0.18);
+      }
+
+      .app-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        height: var(--header-height);
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid rgba(220, 228, 238, 0.72);
+        backdrop-filter: blur(12px);
+      }
+
+      .status-bar {
+        height: 34px;
+        padding: 8px 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #222734;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .status-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #303744;
+        font-size: 12px;
+      }
+
+      .battery {
+        min-width: 26px;
+        height: 17px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 9px;
+        background: #555b66;
+        color: var(--white);
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .nav-bar {
+        height: 62px;
+        padding: 4px 16px 14px;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) 58px;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-button {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        background: transparent;
+        color: #171b26;
+        cursor: pointer;
+      }
+
+      .icon-button::before {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-left: 1.8px solid currentColor;
+        border-bottom: 1.8px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .header-title {
+        min-width: 0;
+        overflow: hidden;
+        color: #171b26;
+        font-size: 17px;
+        font-weight: 400;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .consult-button {
+        width: 58px;
+        height: 38px;
+        padding: 0;
+        border: 1px solid #dfe5ec;
+        border-radius: 999px;
+        background: var(--white);
+        color: #2f3542;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .product-scroll {
+        height: 100%;
+        padding-top: var(--header-height);
+        padding-bottom: calc(var(--cta-height) + 18px);
+        overflow-y: auto;
+        background: var(--white);
+        scrollbar-width: none;
+      }
+
+      .product-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .product-image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .quote-cta {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 4;
+        min-height: var(--cta-height);
+        padding: 14px 22px 10px;
+        overflow: hidden;
+        border-radius: 22px 22px 0 0;
+        background: rgba(255, 255, 255, 0.99);
+        box-shadow: 0 -8px 26px rgba(24, 42, 68, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      .cta-benefit {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        margin-bottom: 12px;
+        color: #222734;
+        font-size: clamp(11px, 3.1vw, 13px);
+        font-weight: 400;
+        line-height: 1.3;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .cta-benefit strong {
+        color: var(--blue);
+      }
+
+      .cta-benefit-icon {
+        width: 14px;
+        height: 16px;
+        flex: 0 0 auto;
+        object-fit: contain;
+      }
+
+      .quote-form {
+        position: relative;
+        width: 100%;
+        padding-right: 92px;
+        margin-bottom: 14px;
+      }
+
+      .quote-form label {
+        min-width: 0;
+      }
+
+      .birth-field {
+        min-width: 0;
+        height: 50px;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid #e7edf4;
+        border-radius: 0;
+        background: transparent;
+        color: #151924;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0;
+        outline: 0;
+        padding-left: 8px;
+      }
+
+      .birth-field:focus {
+        border-bottom-color: var(--blue);
+      }
+
+      .gender-toggle {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 84px;
+        min-width: 0;
+        height: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 3px;
+        border: 1px solid #e0e6ee;
+        border-radius: 12px;
+        background: var(--white);
+      }
+
+      .gender-option {
+        min-width: 0;
+        border: 0;
+        border-radius: 10px;
+        background: transparent;
+        color: #8b929c;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .gender-option.is-active {
+        border: 2px solid var(--blue);
+        color: var(--blue);
+        background: var(--white);
+      }
+
+      .cta-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .cta-actions button {
+        position: relative;
+        min-width: 0;
+        height: 52px;
+        border: 0;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .ask-button {
+        background: #e8f4ff;
+        color: var(--blue);
+      }
+
+      .quote-button {
+        overflow: hidden;
+        border: 2.4px solid #ff4fa3;
+        background: #2489f5;
+        color: var(--white);
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+          0 0 12px rgba(105, 215, 255, 0.28);
+        animation: ctaBorderColorRotate 2.8s linear infinite;
+      }
+
+      .quote-button::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        padding: 2.4px;
+        background: conic-gradient(
+          from var(--sheet-border-angle),
+          #ff4fa3,
+          #35d676,
+          #69d7ff,
+          #006ff2,
+          #ff4fa3
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: sheetBorderRotate 2.8s linear infinite;
+        pointer-events: none;
+      }
+
+      .quote-button::after {
+        content: "";
+        position: absolute;
+        inset: 2.4px;
+        z-index: 0;
+        border-radius: 11px;
+        background: #2489f5;
+        pointer-events: none;
+      }
+
+      .quote-button span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .quote-button:disabled {
+        border-color: #69d7ff;
+        background: #b7d8fb;
+        cursor: not-allowed;
+      }
+
+      .quote-button:disabled::after {
+        background: #b7d8fb;
+      }
+
+      @keyframes ctaBorderColorRotate {
+        0%,
+        100% {
+          border-color: #ff4fa3;
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+            0 0 12px rgba(255, 79, 163, 0.28);
+        }
+        25% {
+          border-color: #35d676;
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+            0 0 12px rgba(53, 214, 118, 0.26);
+        }
+        50% {
+          border-color: #69d7ff;
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+            0 0 12px rgba(105, 215, 255, 0.32);
+        }
+        75% {
+          border-color: #006ff2;
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+            0 0 12px rgba(0, 111, 242, 0.26);
+        }
+      }
+
+      .cta-note {
+        margin: 8px 0 0;
+        color: #8d949e;
+        font-size: 13px;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .dim {
+        position: absolute;
+        inset: 0;
+        z-index: 5;
+        background: rgba(4, 16, 34, 0.28);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .stage.sheet-open .dim,
+      .stage.modal-open .dim {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .stage.modal-open .dim {
+        z-index: 7;
+        background: rgba(4, 16, 34, 0.36);
+      }
+
+      .bottom-sheet {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 6;
+        height: min(590px, 92%);
+        max-height: 92%;
+        padding: 14px 18px 14px;
+        display: flex;
+        flex-direction: column;
+        border: 3px solid transparent;
+        background:
+          linear-gradient(var(--white), var(--white)) padding-box,
+          conic-gradient(
+              from var(--sheet-border-angle),
+              #ff4fa3,
+              #35d676,
+              #69d7ff,
+              #006ff2,
+              #ff4fa3
+            )
+            border-box;
+        border-radius: 26px 26px 0 0;
+        box-shadow: 0 -16px 48px rgba(13, 52, 94, 0.16);
+        transform: translateY(110%);
+        transition: transform 260ms cubic-bezier(0.2, 0.9, 0.25, 1);
+        animation: sheetBorderRotate 2.8s linear infinite;
+        overflow: hidden;
+      }
+
+      .stage.sheet-open .bottom-sheet {
+        transform: translateY(0);
+      }
+
+      @property --sheet-border-angle {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      @keyframes sheetBorderRotate {
+        to {
+          --sheet-border-angle: 360deg;
+        }
+      }
+
+      .sheet-handle {
+        width: 44px;
+        height: 5px;
+        margin: 0 auto 18px;
+        border-radius: 99px;
+        background: #d8e2ed;
+      }
+
+      .sheet-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .ai-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--blue);
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+
+      .ai-mark {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: conic-gradient(from 25deg, #14e7d3, #16a6ff, #e74ff9, #fff34f, #14e7d3);
+        box-shadow: 0 4px 12px rgba(23, 137, 255, 0.24);
+      }
+
+      .sheet-title {
+        margin: 0;
+        color: #171b26;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 25px;
+        line-height: 1.22;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        word-break: keep-all;
+      }
+
+      .sheet-close {
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #687484;
+        cursor: pointer;
+      }
+
+      .choice-list,
+      .recommend-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .sheet-step {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        will-change: transform, opacity;
+      }
+
+      .sheet-step.slide-in {
+        animation: slideInFromRight 520ms cubic-bezier(0.16, 0.82, 0.22, 1) both;
+      }
+
+      .sheet-step.slide-back {
+        animation: slideInFromLeft 460ms cubic-bezier(0.16, 0.82, 0.22, 1) both;
+      }
+
+      @keyframes slideInFromRight {
+        from {
+          opacity: 0;
+          transform: translateX(32px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .choice {
+        min-height: 76px;
+        width: 100%;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--white);
+        color: var(--text);
+        font-weight: 400;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .choice strong {
+        font-size: 19px;
+        font-weight: 400;
+        letter-spacing: 0;
+      }
+
+      .choice-keyword {
+        color: var(--blue);
+        font-weight: 400;
+      }
+
+      .choice small {
+        flex: 0 0 auto;
+        margin-left: auto;
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #1349d8 0%, #5738d7 100%);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .choice:hover,
+      .choice.is-selected {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 2px rgba(23, 137, 255, 0.12);
+      }
+
+      .sheet-progress {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 18px;
+      }
+
+      #stepPremium > .sheet-progress {
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .sheet-footer {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 18px;
+      }
+
+      .sheet-footer .sheet-progress {
+        margin-top: 0;
+      }
+
+      #stepRecommend .sheet-footer {
+        padding-bottom: 12px;
+      }
+
+      .sheet-back {
+        width: fit-content;
+        min-height: 34px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 0;
+        background: transparent;
+        color: #7c8795;
+        font-size: 13px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .sheet-back::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-left: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .sheet-back:hover {
+        color: var(--blue-deep);
+      }
+
+      .sheet-back:focus-visible {
+        outline: 2px solid rgba(23, 137, 255, 0.32);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #c9d5e2;
+      }
+
+      .dot.active {
+        width: 14px;
+        border-radius: 99px;
+        background: var(--blue);
+      }
+
+      .loading-box {
+        flex: 1 1 auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .loading-visuals {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        transform: translateY(-10px);
+      }
+
+      .loading-analysis {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.35;
+        letter-spacing: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        background-image: linear-gradient(
+          90deg,
+          #ff4fa3 0%,
+          #35d676 34%,
+          #69d7ff 66%,
+          #006ff2 100%
+        );
+        background-size: 200% 100%;
+        background-position: 0% 50%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation:
+          loadingTextIntro 680ms cubic-bezier(0.2, 0.82, 0.22, 1) 140ms both,
+          loadingTextFlow 3s ease-in-out 820ms infinite alternate;
+      }
+
+      .loading-profile {
+        flex: 0 0 auto;
+      }
+
+      .loading-profile .ai-label {
+        margin-bottom: 0;
+      }
+
+      .lottie-loader {
+        width: 112px;
+        height: 112px;
+        transform: translateY(4px);
+      }
+
+      .lottie-loader svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading-copy {
+        margin: 0;
+        min-height: 96px;
+        display: grid;
+        gap: 6px;
+        font-size: 21px;
+        line-height: 1.34;
+        font-weight: 400;
+      }
+
+      .loading-line {
+        display: block;
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(3px);
+        animation: loadingLineDissolve 730ms ease both;
+      }
+
+      .loading-line:nth-child(1) {
+        animation-delay: 650ms;
+      }
+
+      .loading-line:nth-child(2) {
+        animation-delay: 1950ms;
+      }
+
+      .loading-line:nth-child(3) {
+        animation-delay: 3280ms;
+      }
+
+      .loading-value {
+        color: var(--blue-deep);
+      }
+
+      @keyframes loadingLineDissolve {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+          filter: blur(3px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes loadingTextIntro {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes loadingTextFlow {
+        from {
+          background-position: 0% 50%;
+        }
+        to {
+          background-position: 100% 50%;
+        }
+      }
+
+      .recommend-card {
+        width: 100%;
+        padding: 14px 15px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px 10px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--white);
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .recommend-card:hover {
+        border-color: var(--blue);
+        box-shadow: 0 8px 22px rgba(23, 137, 255, 0.12);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 4px 7px;
+        border-radius: 6px;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .badge.choice-tag {
+        background: linear-gradient(135deg, #1349d8 0%, #5738d7 100%);
+        color: var(--white);
+        font-weight: 400;
+      }
+
+      .card-name {
+        margin: 5px 0 0;
+        font-size: 17px;
+        font-weight: 400;
+      }
+
+      .card-reason {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+
+      .price-stack {
+        justify-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+      }
+
+      .price {
+        color: var(--text);
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .price strong {
+        display: inline;
+        color: var(--blue-deep);
+        font-size: 23px;
+        line-height: 1.1;
+        font-weight: 400;
+      }
+
+      .direct-card {
+        justify-self: end;
+        width: fit-content;
+        min-height: 34px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--blue-deep);
+        font-size: 14px;
+        font-weight: 400;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        cursor: pointer;
+      }
+
+      .modal {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-46%) scale(0.96);
+        padding: 28px 30px 30px;
+        border-radius: 22px;
+        background: var(--white);
+        box-shadow: 0 24px 80px rgba(0, 35, 75, 0.24);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+        z-index: 8;
+      }
+
+      .stage.modal-open .modal {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(-50%) scale(1);
+      }
+
+      .modal .sheet-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 28px;
+        height: 28px;
+        background: transparent;
+        color: #8b8b8b;
+        font-size: 18px;
+      }
+
+      .modal-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 24px 0 8px;
+      }
+
+      .modal-title-row .ai-mark {
+        flex: 0 0 auto;
+      }
+
+      .modal h2 {
+        margin: 0;
+        color: #555;
+        font-size: 20px;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .modal p {
+        margin: 0;
+      }
+
+      .modal-subcopy {
+        margin-bottom: 22px;
+        color: #667085;
+        font-size: 15px;
+        line-height: 1.32;
+        text-align: center;
+      }
+
+      .modal-plan-name {
+        color: var(--blue-deep);
+      }
+
+      .modal-lead {
+        margin-bottom: 10px;
+        color: #555;
+        font-size: 14.5px;
+        line-height: 1.32;
+        text-align: center;
+      }
+
+      .modal-lead:empty {
+        display: none;
+      }
+
+      .modal-lead .blue {
+        color: var(--blue-deep);
+      }
+
+      .modal-chip {
+        width: fit-content;
+        margin: 25px auto 8px;
+        padding: 7px 16px 8px;
+        border-radius: 8px;
+        background: #dfeeff;
+        color: var(--blue-deep);
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .modal-summary {
+        margin-bottom: 30px;
+        padding: 0 0 18px;
+        text-align: center;
+      }
+
+      .modal-meta {
+        margin-bottom: 14px;
+        color: #777;
+        font-size: 12.6px;
+        line-height: 1.35;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .modal-price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 7px;
+        height: auto;
+        margin-bottom: 10px;
+        background: transparent;
+        color: #333;
+        font-size: 16px;
+        white-space: nowrap;
+      }
+
+      .modal-price .amount {
+        font-size: 40px;
+        color: var(--blue-deep);
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .modal-divider {
+        height: 1px;
+        margin: 16px 0 18px;
+        background: #79a7ff;
+      }
+
+      .modal-divider-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 16px 0 18px;
+        color: var(--blue-deep);
+        font-size: 12px;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .modal-divider-label::before,
+      .modal-divider-label::after {
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: #79a7ff;
+      }
+
+      .modal-benefits {
+        display: grid;
+        gap: 3px;
+        margin: 0;
+        padding: 0;
+        color: #555;
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.15;
+        list-style: none;
+      }
+
+      .modal-benefits li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: baseline;
+        gap: 12px;
+        white-space: nowrap;
+      }
+
+      .modal-benefits .label::before {
+        content: "•";
+        margin-right: 6px;
+      }
+
+      .modal-benefits .value {
+        color: #0f4fd8;
+        text-align: right;
+      }
+
+      .modal-detail {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: var(--blue-deep);
+        font-size: 15px;
+        font-weight: 400;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .modal-bubble-area {
+        position: relative;
+        height: 30px;
+        margin: -14px 0 4px;
+        pointer-events: none;
+      }
+
+      .modal-reassure {
+        position: absolute;
+        right: 0;
+        bottom: 7px;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: #0d0f14;
+        color: var(--white);
+        font-size: 10.9px;
+        line-height: 1.2;
+        text-align: center;
+        transform: translateY(8px);
+        white-space: nowrap;
+        opacity: 0;
+      }
+
+      .modal-reassure::after {
+        content: "";
+        position: absolute;
+        left: 72%;
+        bottom: -10px;
+        width: 0;
+        height: 0;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-top: 12px solid #0d0f14;
+        transform: translateX(-50%);
+      }
+
+      .stage.modal-open .modal-reassure {
+        animation: bubbleDissolveIn 630ms cubic-bezier(0.2, 0.82, 0.2, 1) 500ms both;
+      }
+
+      .modal-reassure .blue {
+        color: var(--white);
+      }
+
+      @keyframes bubbleDissolveIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+          filter: blur(4px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+
+      .modal-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .modal-actions button {
+        height: 51px;
+        border: 0;
+        border-radius: 12px;
+        font-weight: 400;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .secondary {
+        background: #dfeeff;
+        color: var(--blue-deep);
+        font-size: 17px;
+      }
+
+      .primary {
+        background: var(--blue-deep);
+        color: var(--white);
+        font-size: 17.6px;
+      }
+
+      .toast {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        padding: 13px 14px;
+        border-radius: 14px;
+        background: #13233a;
+        color: var(--white);
+        text-align: center;
+        font-size: 13px;
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+        z-index: 10;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .confirm-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 11;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        background: rgba(4, 16, 34, 0.34);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .confirm-overlay.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .confirm-dialog {
+        width: 100%;
+        max-width: 320px;
+        padding: 24px 20px 18px;
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: 0 20px 48px rgba(0, 35, 75, 0.22);
+        text-align: center;
+      }
+
+      .confirm-head {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: var(--blue);
+        font-size: 17px;
+        line-height: 1;
+      }
+
+      .confirm-head .ai-mark {
+        width: 30px;
+        height: 30px;
+        box-shadow: 0 6px 16px rgba(23, 137, 255, 0.18);
+      }
+
+      .confirm-message {
+        margin: 0 0 18px;
+        color: #202631;
+        font-size: 15px;
+        line-height: 1.45;
+        word-break: keep-all;
+      }
+
+      .confirm-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .confirm-actions button {
+        height: 44px;
+        border: 0;
+        border-radius: 12px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .confirm-cancel {
+        background: #eef4fb;
+        color: #5c6677;
+      }
+
+      .confirm-accept {
+        background: var(--blue-deep);
+        color: var(--white);
+      }
+
+      .home-hit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 24;
+        width: 88px;
+        height: 88px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .is-hidden {
+        display: none;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          display: block;
+          background: var(--white);
+        }
+
+        .stage {
+          width: 100vw;
+          height: var(--app-viewport-height);
+          min-height: var(--app-viewport-height);
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage" id="stage">
+      <button class="home-hit" id="homeButton" aria-label="상품상세페이지로 이동"></button>
+      <header class="app-header" aria-label="상품 상세 헤더">
+        <div class="status-bar" aria-hidden="true">
+          <span>SKT 3:50</span>
+          <span class="status-icons">5G ▮▮ <span class="battery">83</span></span>
+        </div>
+        <div class="nav-bar">
+          <button class="icon-button" type="button" aria-label="이전 화면"></button>
+          <div class="header-title">삼성 팩 건강보험</div>
+          <button class="consult-button" type="button" id="consultButton">상담</button>
+        </div>
+      </header>
+
+      <section class="product-scroll" aria-label="팩건강보험 상품 상세페이지">
+        <img
+          class="product-image"
+          src="assets/product-body-step1-full-trimmed.png"
+          alt="삼성 팩 건강보험 상품 상세 본문"
+        />
+      </section>
+
+      <section class="quote-cta" aria-label="보험료 확인 입력 영역">
+        <div class="cta-benefit">
+          <img class="cta-benefit-icon" src="assets/cta-discount-icon.png" alt="" aria-hidden="true" />
+          오프라인 상품 대비 <strong>저렴한 보험료</strong>로 가입해 보세요!
+        </div>
+        <div class="quote-form">
+          <label>
+            <span class="is-hidden">생년월일</span>
+            <input
+              class="birth-field"
+              id="birthInput"
+              type="text"
+              inputmode="numeric"
+              maxlength="8"
+              value="19810905"
+              aria-label="생년월일 8자리"
+            />
+          </label>
+          <div class="gender-toggle" role="group" aria-label="성별 선택">
+            <button class="gender-option is-active" type="button" data-gender="남성">남</button>
+            <button class="gender-option" type="button" data-gender="여성">여</button>
+          </div>
+        </div>
+        <div class="cta-actions">
+          <button class="ask-button" type="button" id="askButton">부담없이 물어보기</button>
+          <button class="quote-button" type="button" id="openSheet"><span>보험료 확인하기</span></button>
+        </div>
+        <p class="cta-note">가입 후 30일까지 청약 철회 할 수 있어요</p>
+      </section>
+
+      <div class="dim" id="dim"></div>
+
+      <section class="bottom-sheet" id="sheet" aria-live="polite">
+        <div class="sheet-handle"></div>
+
+        <div id="stepPremium" class="sheet-step">
+          <div class="sheet-top">
+            <div>
+              <div class="ai-label"><span class="ai-mark"></span><span data-profile-label>40대 남성을 위한 AI 보험설계</span></div>
+              <h1 class="sheet-title">매월 보험료는<br />얼마정도 생각하세요?</h1>
+            </div>
+            <button class="sheet-close" data-close aria-label="닫기">×</button>
+          </div>
+
+          <div class="choice-list">
+            <button class="choice" data-premium="3~5만원">
+              <strong>3~5 만원</strong>
+            </button>
+            <button class="choice" data-premium="5~10만원">
+              <strong>5~10 만원</strong>
+              <small>75% 고객님의 선택</small>
+            </button>
+            <button class="choice" data-premium="10~15만원">
+              <strong>10~15 만원</strong>
+            </button>
+            <button class="choice" data-premium="15만원 이상">
+              <strong>15 만원 이상</strong>
+            </button>
+          </div>
+
+          <div class="sheet-progress" aria-hidden="true">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <div id="stepNeed" class="sheet-step is-hidden">
+          <div class="sheet-top">
+            <div>
+              <div class="ai-label"><span class="ai-mark"></span><span data-profile-label>40대 남성을 위한 AI 보험설계</span></div>
+              <h1 class="sheet-title">어떤 상황을 가장<br />대비해 볼까요?</h1>
+            </div>
+            <button class="sheet-close" data-close aria-label="닫기">×</button>
+          </div>
+
+          <div class="choice-list">
+            <button class="choice" data-need="암" data-need-copy="암에 대한 걱정이 제일 커요">
+              <strong><span class="choice-keyword">암</span>에 대한 걱정이 제일 커요</strong>
+            </button>
+            <button
+              class="choice"
+              data-need="뇌·심장 혈관질환"
+              data-need-copy="뇌,심장 질환이 가장 걱정돼요"
+            >
+              <strong><span class="choice-keyword">뇌,심장</span> 질환이 가장 걱정돼요</strong>
+            </button>
+            <button class="choice" data-need="치매" data-need-copy="치매가 정말 염려돼요">
+              <strong><span class="choice-keyword">치매</span>가 정말 염려돼요</strong>
+            </button>
+            <button class="choice" data-need="균형" data-need-copy="골고루 대비하고 싶어요">
+              <strong><span class="choice-keyword">골고루</span> 대비하고 싶어요</strong>
+            </button>
+          </div>
+
+          <div class="sheet-footer">
+            <button class="sheet-back" type="button" data-back-to="premium">이전</button>
+            <div class="sheet-progress" aria-hidden="true">
+              <span class="dot"></span>
+              <span class="dot active"></span>
+              <span class="dot"></span>
+            </div>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="stepLoading" class="sheet-step is-hidden">
+          <div class="loading-profile">
+            <div class="ai-label"><span class="ai-mark"></span><span data-profile-label>40대 남성을 위한 AI 보험설계</span></div>
+          </div>
+          <div class="loading-box">
+            <div class="loading-visuals">
+              <p class="loading-analysis">삼성생명 맞춤설계 AI 분석중 ...</p>
+              <div class="lottie-loader" id="loadingLottie" aria-hidden="true"></div>
+            </div>
+            <p class="loading-copy" id="loadingCopy">
+              <span class="loading-line">월 <span class="loading-value">5~10만원</span> 내에서</span>
+              <span class="loading-line"><span class="loading-value">40대, 남성</span>에 맞는</span>
+              <span class="loading-line"><span class="loading-value">암</span>보장을 우선해서 설계중이에요</span>
+            </p>
+          </div>
+        </div>
+
+        <div id="stepRecommend" class="sheet-step is-hidden">
+          <div class="sheet-top">
+            <div>
+              <div class="ai-label"><span class="ai-mark"></span><span data-recommend-label>AI 추천 설계 3가지</span></div>
+              <h1 class="sheet-title">고객님 상황에 맞게<br />세가지 제안드릴게요</h1>
+            </div>
+            <button class="sheet-close" data-close aria-label="닫기">×</button>
+          </div>
+
+          <div class="recommend-list" id="recommendList"></div>
+
+          <div class="sheet-footer">
+            <button class="sheet-back" type="button" data-back-to="need">이전</button>
+            <span></span>
+            <button class="direct-card" id="directDesign">직접 설계할게요</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="sheet-close" id="modalClose" aria-label="닫기">×</button>
+        <div class="modal-title-row">
+          <span class="ai-mark" aria-hidden="true"></span>
+          <h2 id="modalTitle">딱 맞는 설계를 선택!</h2>
+        </div>
+        <p class="modal-subcopy">
+          <span class="modal-plan-name" id="modalPlanNameCopy">선택한 설계유형</span>에 맞게<br />
+          세부 보장항목을 설정했어요
+        </p>
+        <p class="modal-lead"></p>
+        <div class="modal-summary">
+          <div class="modal-chip" id="modalPlanName">암집중형</div>
+          <div class="modal-price">
+            <span>월</span>
+            <span class="amount" id="modalPrice">95,072</span>
+            <span>원</span>
+          </div>
+          <p class="modal-meta" id="modalMeta">보험기간 100세, 납입기간 20년, 남성/45세</p>
+          <div class="modal-divider-label">주요 보장 안내</div>
+          <ul class="modal-benefits" id="modalBenefits"></ul>
+          <div class="modal-divider"></div>
+          <button class="modal-detail" id="checkCoverage">상세설계 확인/변경&gt;</button>
+        </div>
+        <div class="modal-bubble-area" aria-hidden="true">
+          <p class="modal-reassure">
+            가입 후 30일 내 언제든 취소(청약철회) 가능
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button class="secondary" id="seeOtherPlans">다른 추천</button>
+          <button class="primary" id="startApply">가입시작</button>
+        </div>
+      </section>
+
+      <div class="confirm-overlay" id="detailConfirm" aria-hidden="true">
+        <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="detailConfirmMessage">
+          <div class="confirm-head" aria-hidden="true">
+            <span class="ai-mark"></span>
+            <strong>알려드려요</strong>
+          </div>
+          <p class="confirm-message" id="detailConfirmMessage">
+            선택하신 보장조건으로<br />
+            셀프로 설계할 수 있도록 연결해드릴게요.<br />
+            자세한 보장내용을 확인해보시고,<br />
+            원하는 조건으로 설정해보세요
+          </p>
+          <div class="confirm-actions">
+            <button class="confirm-cancel" type="button" id="detailConfirmCancel">취소</button>
+            <button class="confirm-accept" type="button" id="detailConfirmAccept">확인</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast" id="toast">다음 단계 화면 개발 후 연결됩니다.</div>
+    </main>
+
+    <script src="assets/lottie.min.js"></script>
+    <script src="assets/loading-lottie-data.js"></script>
+    <script>
+      const stage = document.querySelector("#stage");
+      const sheet = document.querySelector("#sheet");
+      const openSheet = document.querySelector("#openSheet");
+      const birthInput = document.querySelector("#birthInput");
+      const dim = document.querySelector("#dim");
+      const modal = document.querySelector("#modal");
+      const toast = document.querySelector("#toast");
+      const detailConfirm = document.querySelector("#detailConfirm");
+
+      const steps = {
+        premium: document.querySelector("#stepPremium"),
+        need: document.querySelector("#stepNeed"),
+        loading: document.querySelector("#stepLoading"),
+        recommend: document.querySelector("#stepRecommend"),
+      };
+
+      const state = {
+        birth: "19810905",
+        gender: "남성",
+        ageBand: "40대",
+        premium: "",
+        need: "",
+        needCopy: "",
+        selectedPlan: null,
+      };
+      let loadingAnimation = null;
+
+      const priceBands = {
+        "3~5만원": ["49,800", "45,600", "39,900"],
+        "5~10만원": ["95,072", "88,527", "63,996"],
+        "10~15만원": ["128,400", "114,800", "102,600"],
+        "15만원 이상": ["168,000", "151,200", "139,600"],
+      };
+
+      const needReasons = {
+        암: [
+          "암 진단과 치료 보장을 강화했어요",
+          "진단은 기본, 치료 보장은 넓혔어요",
+          "필수 치료보장만 담아 부담을 낮췄어요",
+        ],
+        "뇌·심장 혈관질환": [
+          "뇌·심장 진단과 수술을 우선 담았어요",
+          "핵심 혈관질환 보장을 넓혔어요",
+          "입원·수술 위주로 꼭 맞게 담았어요",
+        ],
+        치매: [
+          "치매 진단 보장을 먼저 담았어요",
+          "간병 부담 대비 보장을 보강했어요",
+          "필수 치매 보장 위주로 맞췄어요",
+        ],
+        균형: [
+          "주요 보장을 균형 있게 담았어요",
+          "핵심 보장은 지키고 부담은 낮췄어요",
+          "꼭 필요한 보장만 간결하게 담았어요",
+        ],
+      };
+
+        const coverageCatalog = {
+          cancerDiagnosisIntegrated: { label: "암진단 (통합암)" },
+          cancerDiagnosisSmallIntegrated: { label: "암진단 (통합소액암)" },
+          cancerDiagnosisGeneral: { label: "암진단 (일반암)" },
+          cancerDiagnosisEarlySmall: { label: "암진단 (갑상선암 등 소액암)" },
+
+          cancerTreatmentIntegrated: { label: "암치료 (통합)" },
+          cancerTreatmentWithNonPay: { label: "암치료 (통합 비금여포함)" },
+          cancerTreatmentCare: { label: "암치료 (치료)" },
+          cancerTreatmentSmall: { label: "암치료 (소액암)" },
+          cancerTreatmentTopHospital: { label: "암치료 (상급병원 치료)" },
+          cancerTreatmentComplex: { label: "암치료 (복합치료)" },
+          cancerTreatmentComplexSmall: { label: "암치료 (상급병원, 소액암)" },
+          cancerTreatmentDrug: { label: "암치료 (항암 약물치료)" },
+          cancerTreatmentRadiation: { label: "암치료 (항암 방사선 치료)" },
+
+          premiumCancerEight: { label: "프리미엄 암치료 (고액 8종)" },
+          premiumCancerThree: { label: "프리미엄 암치료 (고액 3종)" },
+          premiumCancerParticle: { label: "프리미엄 암치료 (항암중입자)" },
+          premiumCancerTargeted: { label: "프리미엄 암치료 (약물,방사선)" },
+          premiumCancerPrecision: { label: "프리미엄 암치료 (정밀치료)" },
+
+          brainHeartDiagnosisBrain: { label: "뇌/심장 진단 (뇌혈관질환)" },
+          brainHeartDiagnosisHeart: { label: "뇌/심장 진단 (심장질환)" },
+          brainHeartDiagnosisArrhythmia: { label: "뇌/심장 진단 (부정맥)" },
+
+          brainHeartTreatmentIntegrated: { label: "뇌/심장 치료 (순환계 통합)" },
+          brainHeartTreatmentSpecific: { label: "뇌/심장 치료 (순환계 특정)" },
+          brainHeartTreatmentCore: { label: "뇌/심장 치료 (순환계 치료)" },
+          brainHeartTreatmentComplex: { label: "뇌/심장 치료 (순환계 복합)" },
+
+          hospitalSingle: { label: "입원 (1인실 입원)" },
+          hospitalShared: { label: "입원 (2~3인실 입원)" },
+
+          careBefore180: { label: "간병 (간병인 180일 이전)" },
+          careAfter181: { label: "간병 (간병인 181일 이후)" },
+          careService: { label: "간병 (간호간병서비스)" },
+
+          surgeryBasic: { label: "수술 (질병/사고 수술)" },
+          surgeryPower: { label: "수술 (파워수술)" },
+
+          dementiaDiagnosis: { label: "치매 (진단)" },
+          dementiaDiagnosisAfterDiabetes: { label: "치매 (진단 당뇨발병후)" },
+          dementiaCareLekembi: { label: "치매 (통합치료 레켐비 등)" },
+          dementiaOutpatient: { label: "치매 (통원치료)" },
+
+          dailyFracture: { label: "일상생활 (골절/깁스 치료)" },
+          dailyFlu: { label: "일상생활 (독감 치료)" },
+          dailyJoint: { label: "일상생활 (골다공증, 통풍 등)" },
+
+          deathCoverage: { label: "사망보장 (사망)" },
+          cancerPremiumSupport: { label: "암진단시 (보험료 납입지원)" },
+        };
+
+        const coverageAmountCandidatesById = {
+          cancerDiagnosisIntegrated: ["미가입", "1,000만원", "1,500만원", "3,000만원"],
+          cancerDiagnosisSmallIntegrated: ["미가입", "200만원", "300만원", "600만원"],
+          cancerDiagnosisGeneral: ["미가입", "1,000만원", "1,500만원", "3,000만원"],
+          cancerDiagnosisEarlySmall: ["미가입", "200만원", "300만원", "600만원"],
+          cancerTreatmentIntegrated: ["미가입", "5,000만원", "8,000만원"],
+          cancerTreatmentWithNonPay: ["미가입", "5,000만원", "8,000만원"],
+          cancerTreatmentCare: ["미가입", "100만원", "500만원", "1,000만원"],
+          cancerTreatmentSmall: ["미가입", "100만원", "200만원"],
+          cancerTreatmentTopHospital: ["미가입", "100만원", "500만원", "1,000만원"],
+          cancerTreatmentComplex: ["미가입", "100만원", "500만원", "1,000만원"],
+          cancerTreatmentComplexSmall: ["미가입", "100만원", "200만원"],
+          cancerTreatmentDrug: ["미가입", "1,000만원", "1,500만원", "3,000만원"],
+          cancerTreatmentRadiation: ["미가입", "1,000만원", "1,500만원", "3,000만원"],
+          premiumCancerEight: ["미가입", "100만원", "500만원", "1,000만원"],
+          premiumCancerThree: ["미가입", "100만원", "500만원", "1,000만원"],
+          premiumCancerParticle: ["미가입", "1,000만원", "3,000만원", "5,000만원"],
+          premiumCancerTargeted: ["미가입", "8,000만원"],
+          premiumCancerPrecision: ["미가입", "2,000만원"],
+          brainHeartDiagnosisBrain: ["미가입", "500만원", "1,000만원", "2,000만원"],
+          brainHeartDiagnosisHeart: ["미가입", "500만원", "1,000만원", "2,000만원"],
+          brainHeartDiagnosisArrhythmia: ["미가입", "100만원", "500만원"],
+          brainHeartTreatmentIntegrated: ["미가입", "5,000만원", "8,000만원"],
+          brainHeartTreatmentSpecific: ["미가입", "100만원", "500만원", "1,000만원"],
+          brainHeartTreatmentCore: ["미가입", "100만원", "500만원", "1,000만원"],
+          brainHeartTreatmentComplex: ["미가입", "100만원", "500만원", "1,000만원"],
+          hospitalSingle: ["미가입", "10만원", "15만원"],
+          hospitalShared: ["미가입", "5만원", "7만원"],
+          careBefore180: ["미가입", "3만원", "7만원"],
+          careAfter181: ["미가입", "4만원", "7만원"],
+          careService: ["미가입", "7만원", "10만원"],
+          surgeryBasic: ["미가입", "2만원", "4만원", "7만원"],
+          surgeryPower: ["미가입", "500만원", "1,000만원"],
+          dementiaDiagnosis: ["미가입", "100만원"],
+          dementiaDiagnosisAfterDiabetes: ["미가입", "50만원"],
+          dementiaCareLekembi: ["미가입", "2,000만원"],
+          dementiaOutpatient: ["미가입", "1만원"],
+          dailyFracture: ["미가입", "100만원", "500만원", "1,000만원"],
+          dailyFlu: ["미가입", "3만원", "10만원"],
+          dailyJoint: ["미가입", "100만원", "200만원"],
+          deathCoverage: ["300만원"],
+          cancerPremiumSupport: ["미가입", "가입"],
+        };
+
+        const premiumAmountTargetIndex = {
+          "3~5만원": 1,
+          "5~10만원": 2,
+          "10~15만원": 3,
+          "15만원 이상": 4,
+        };
+
+      const modalCoveragePresets = {
+        암: [
+          [
+            "cancerDiagnosisGeneral",
+            "cancerTreatmentIntegrated",
+            "premiumCancerParticle",
+            "premiumCancerTargeted",
+            "premiumCancerEight",
+            "cancerTreatmentDrug",
+            "cancerPremiumSupport",
+            "hospitalSingle",
+          ],
+          [
+            "cancerDiagnosisIntegrated",
+            "cancerTreatmentWithNonPay",
+            "premiumCancerThree",
+            "premiumCancerPrecision",
+            "cancerTreatmentTopHospital",
+            "brainHeartDiagnosisHeart",
+            "surgeryPower",
+            "dailyJoint",
+          ],
+          [
+            "cancerDiagnosisSmallIntegrated",
+            "cancerDiagnosisEarlySmall",
+            "cancerTreatmentSmall",
+            "cancerTreatmentRadiation",
+            "cancerTreatmentCare",
+            "surgeryBasic",
+            "hospitalShared",
+            "dailyFlu",
+          ],
+        ],
+        "뇌·심장 혈관질환": [
+          [
+            "brainHeartDiagnosisBrain",
+            "brainHeartDiagnosisHeart",
+            "brainHeartTreatmentIntegrated",
+            "brainHeartTreatmentComplex",
+            "brainHeartTreatmentSpecific",
+            "brainHeartDiagnosisArrhythmia",
+            "surgeryPower",
+            "hospitalSingle",
+          ],
+          [
+            "brainHeartDiagnosisBrain",
+            "brainHeartTreatmentIntegrated",
+            "brainHeartTreatmentCore",
+            "brainHeartDiagnosisHeart",
+            "brainHeartTreatmentSpecific",
+            "hospitalShared",
+            "deathCoverage",
+            "dailyJoint",
+          ],
+          [
+            "brainHeartDiagnosisArrhythmia",
+            "brainHeartTreatmentCore",
+            "brainHeartTreatmentSpecific",
+            "brainHeartDiagnosisHeart",
+            "surgeryBasic",
+            "hospitalShared",
+            "dailyFracture",
+            "deathCoverage",
+          ],
+        ],
+        치매: [
+          [
+            "dementiaDiagnosis",
+            "dementiaCareLekembi",
+            "dementiaOutpatient",
+            "careBefore180",
+            "careAfter181",
+            "careService",
+            "hospitalSingle",
+            "deathCoverage",
+          ],
+          [
+            "dementiaDiagnosis",
+            "dementiaDiagnosisAfterDiabetes",
+            "dementiaCareLekembi",
+            "careBefore180",
+            "careService",
+            "hospitalShared",
+            "dailyJoint",
+            "surgeryBasic",
+          ],
+          [
+            "dementiaDiagnosisAfterDiabetes",
+            "dementiaOutpatient",
+            "careService",
+            "hospitalShared",
+            "dailyFlu",
+            "dailyFracture",
+            "surgeryBasic",
+            "deathCoverage",
+          ],
+        ],
+        균형: [
+          [
+            "cancerDiagnosisGeneral",
+            "brainHeartDiagnosisBrain",
+            "dementiaDiagnosis",
+            "premiumCancerTargeted",
+            "brainHeartTreatmentIntegrated",
+            "careService",
+            "hospitalSingle",
+            "dailyJoint",
+          ],
+          [
+            "cancerDiagnosisIntegrated",
+            "brainHeartDiagnosisHeart",
+            "dementiaCareLekembi",
+            "cancerTreatmentIntegrated",
+            "brainHeartTreatmentCore",
+            "surgeryPower",
+            "hospitalShared",
+            "deathCoverage",
+          ],
+          [
+            "cancerTreatmentCare",
+            "brainHeartTreatmentSpecific",
+            "dementiaOutpatient",
+            "surgeryBasic",
+            "hospitalShared",
+            "dailyFlu",
+            "dailyFracture",
+            "deathCoverage",
+          ],
+        ],
+      };
+
+      function getAgeBand(birth) {
+        if (!/^\d{8}$/.test(birth)) return "40대";
+
+        const birthYear = Number(birth.slice(0, 4));
+        const age = new Date().getFullYear() - birthYear;
+        const decade = Math.max(20, Math.floor(age / 10) * 10);
+        return `${decade}대`;
+      }
+
+      function getDisplayAge(birth) {
+        if (!/^\d{8}$/.test(birth)) return "45세";
+
+        const birthYear = Number(birth.slice(0, 4));
+        return `${new Date().getFullYear() - birthYear}세`;
+      }
+
+      function getModalMetaCopy() {
+        return `보험기간 100세, 납입기간 20년, ${state.gender}/${getDisplayAge(state.birth)}`;
+      }
+
+      function updateProfileFromForm() {
+        state.birth = birthInput.value.replace(/\D/g, "").slice(0, 8);
+        birthInput.value = state.birth;
+        state.ageBand = getAgeBand(state.birth);
+
+        const genderObject = state.gender === "남성" ? "남성을" : "여성을";
+        document.querySelectorAll("[data-profile-label]").forEach((label) => {
+          label.textContent = `${state.ageBand} ${genderObject} 위한 AI 보험설계`;
+        });
+      }
+
+      function showStep(stepName, animate = false, direction = "forward") {
+        Object.values(steps).forEach((step) => {
+          step.classList.add("is-hidden");
+          step.classList.remove("slide-in", "slide-back");
+        });
+
+        const nextStep = steps[stepName];
+        nextStep.classList.remove("is-hidden");
+
+        if (animate) {
+          const animationClass = direction === "back" ? "slide-back" : "slide-in";
+          nextStep.classList.add(animationClass);
+          const animationDuration = direction === "back" ? 520 : 580;
+          window.setTimeout(() => {
+            nextStep.classList.remove(animationClass);
+          }, animationDuration);
+        }
+      }
+
+      function openBottomSheet(stepName = "premium") {
+        stage.classList.add("sheet-open");
+        showStep(stepName);
+      }
+
+      function closeAll() {
+        stage.classList.remove("sheet-open", "modal-open");
+      }
+
+      function syncFormFromState() {
+        birthInput.value = state.birth;
+        document.querySelectorAll("[data-gender]").forEach((button) => {
+          button.classList.toggle("is-active", button.dataset.gender === state.gender);
+        });
+        updateProfileFromForm();
+      }
+
+      function storeFlowState() {
+        window.sessionStorage.setItem(
+          "packFlowState",
+          JSON.stringify({
+            birth: state.birth,
+            gender: state.gender,
+            ageBand: state.ageBand,
+            premium: state.premium,
+            need: state.need,
+            needCopy: state.needCopy,
+            selectedPlan: state.selectedPlan,
+          })
+        );
+      }
+
+      function restoreModalState() {
+        const raw = window.sessionStorage.getItem("packFlowState");
+        if (!raw) return false;
+
+        try {
+          const saved = JSON.parse(raw);
+          Object.assign(state, saved);
+        } catch (error) {
+          return false;
+        }
+
+        syncFormFromState();
+        buildRecommendations();
+        showStep("recommend");
+        stage.classList.add("sheet-open");
+
+        if (!state.selectedPlan) return true;
+
+        if (
+          typeof state.selectedPlan.rank === "number" &&
+          state.need &&
+          state.premium
+        ) {
+          state.selectedPlan.coverageItems = getModalCoverageItems(
+            state.need,
+            state.selectedPlan.rank
+          );
+        }
+
+        const modalPlanName = state.selectedPlan.name.replace(
+          "뇌·심장 혈관질환",
+          "혈관질환"
+        );
+        document.querySelector("#modalTitle").textContent = getModalTitle(state.selectedPlan);
+        document.querySelector("#modalPlanName").textContent = modalPlanName;
+        document.querySelector("#modalPlanNameCopy").textContent = modalPlanName;
+        document.querySelector("#modalMeta").textContent = getModalMetaCopy();
+        document.querySelector("#modalPrice").textContent = state.selectedPlan.price;
+        renderModalBenefits(state.selectedPlan.coverageItems || []);
+        stage.classList.add("modal-open");
+        return true;
+      }
+
+      function restoreRecommendState() {
+        const raw = window.sessionStorage.getItem("packFlowState");
+        if (!raw) return false;
+
+        try {
+          const saved = JSON.parse(raw);
+          Object.assign(state, saved);
+        } catch (error) {
+          return false;
+        }
+
+        syncFormFromState();
+        buildRecommendations();
+        showStep("recommend");
+        stage.classList.remove("modal-open");
+        stage.classList.add("sheet-open");
+        return true;
+      }
+
+      function getModalCoverageItems(need, planIndex) {
+        const presetGroup = modalCoveragePresets[need] || modalCoveragePresets["균형"];
+        const preset = presetGroup[planIndex] || presetGroup[0];
+        return preset
+          .map((id) => {
+            const item = coverageCatalog[id];
+            if (!item) return null;
+            return {
+              id,
+              label: item.label,
+              value: getCoverageAmountForSelection(id, state.premium, planIndex),
+            };
+          })
+          .filter(Boolean)
+          .slice(0, 6);
+      }
+
+      function renderModalBenefits(coverageItems) {
+        const benefits = document.querySelector("#modalBenefits");
+        benefits.innerHTML = coverageItems
+          .map(
+            (item) =>
+              `<li><span class="label">${item.label}</span><span class="value">${item.value}</span></li>`
+            )
+            .join("");
+      }
+
+      function getCoverageAmountForSelection(coverageId, premiumBand, planRank) {
+        const candidates = coverageAmountCandidatesById[coverageId];
+        if (!candidates || !candidates.length) return "";
+        if (candidates.length === 1) return candidates[0];
+
+        const targetIndex = premiumAmountTargetIndex[premiumBand] ?? 2;
+        const adjustedIndex = Math.max(0, targetIndex - planRank);
+        const clampedIndex = Math.min(candidates.length - 1, adjustedIndex);
+        return candidates[clampedIndex];
+      }
+
+      function getNeedHeadlineLabel(need) {
+        if (need === "뇌·심장 혈관질환") return "뇌·심";
+        return need;
+      }
+
+      function getModalTitle(plan) {
+        const rank = plan?.rank ?? 0;
+        if (rank === 0) {
+          return `강력한 ${getNeedHeadlineLabel(state.need)}보장 선택!`;
+        }
+        if (rank === 1) {
+          return "균형잡힌 보장을 선택!";
+        }
+        return "실속형 보장으로 선택!";
+      }
+
+      function getLoadingFocusCopy(need) {
+        if (need === "암") return "암보장";
+        if (need === "뇌·심장 혈관질환") return "뇌,심장 보장";
+        if (need === "치매") return "치매보장";
+        return "균형보장";
+      }
+
+      function getRecommendationNeedLabel(need) {
+        if (need === "뇌·심장 혈관질환") return "뇌·심장";
+        return need;
+      }
+
+      function buildRecommendations() {
+        const list = document.querySelector("#recommendList");
+        const prices = priceBands[state.premium] || priceBands["5~10만원"];
+        const reasons = needReasons[state.need] || needReasons["균형"];
+        const plans = [
+          {
+            badge: "추천 1",
+            name: `${getRecommendationNeedLabel(state.need)} 집중형`,
+            rank: 0,
+            price: prices[0],
+            reason: reasons[0],
+            coverageItems: getModalCoverageItems(state.need, 0),
+          },
+          {
+            badge: "추천 2",
+            choiceTag: "58% 고객의 선택",
+            name: "균형 보강형",
+            rank: 1,
+            price: prices[1],
+            reason: reasons[1],
+            coverageItems: getModalCoverageItems(state.need, 1),
+          },
+          {
+            badge: "추천 3",
+            name: "실속 압축형",
+            rank: 2,
+            price: prices[2],
+            reason: reasons[2],
+            coverageItems: getModalCoverageItems(state.need, 2),
+          },
+        ];
+
+        list.innerHTML = plans
+          .map(
+            (plan, index) => `
+              <button class="recommend-card" data-plan="${index}">
+                <div>
+                  <span class="badge">${plan.badge}</span>
+                  <p class="card-name">${plan.name}</p>
+                </div>
+                <div class="price-stack">
+                  ${plan.choiceTag ? `<span class="badge choice-tag">${plan.choiceTag}</span>` : ""}
+                  <div class="price">월 <strong>${plan.price}</strong>원</div>
+                </div>
+                <p class="card-reason">${plan.reason}</p>
+              </button>
+            `
+          )
+          .join("");
+
+          list.querySelectorAll(".recommend-card").forEach((card, index) => {
+            card.addEventListener("click", () => {
+              state.selectedPlan = plans[index];
+              const modalPlanName = plans[index].name.replace(
+                "뇌·심장 혈관질환",
+                "혈관질환"
+              );
+              document.querySelector("#modalTitle").textContent = getModalTitle(plans[index]);
+              document.querySelector("#modalPlanName").textContent = modalPlanName;
+              document.querySelector("#modalPlanNameCopy").textContent = modalPlanName;
+              document.querySelector("#modalMeta").textContent = getModalMetaCopy();
+            document.querySelector("#modalPrice").textContent = plans[index].price;
+            renderModalBenefits(plans[index].coverageItems);
+            storeFlowState();
+            stage.classList.add("modal-open");
+          });
+        });
+      }
+
+      function ensureLoadingAnimation() {
+        const loadingTarget = document.querySelector("#loadingLottie");
+        if (!loadingTarget || loadingAnimation || !window.lottie || !window.loadingLottieData) return;
+
+        loadingAnimation = window.lottie.loadAnimation({
+          container: loadingTarget,
+          renderer: "svg",
+          loop: true,
+          autoplay: false,
+          animationData: window.loadingLottieData,
+        });
+        loadingAnimation.setSpeed(0.72);
+      }
+
+      function showLoadingThenRecommendations() {
+        const loadingCopy = document.querySelector("#loadingCopy");
+        const loadingFocus = getLoadingFocusCopy(state.need);
+        loadingCopy.innerHTML =
+          `<span class="loading-line">월 <span class="loading-value">${state.premium}</span> 내에서</span>
+          <span class="loading-line"><span class="loading-value">${state.ageBand}, ${state.gender}</span>에 맞는</span>
+          <span class="loading-line"><span class="loading-value">${loadingFocus}</span> 집중 설계중</span>`;
+        ensureLoadingAnimation();
+        if (loadingAnimation) {
+          loadingAnimation.stop();
+          loadingAnimation.play();
+        }
+        showStep("loading", true);
+
+        window.setTimeout(() => {
+          if (loadingAnimation) loadingAnimation.stop();
+          buildRecommendations();
+          showStep("recommend", true);
+        }, 4790);
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        window.setTimeout(() => toast.classList.remove("show"), 1800);
+      }
+
+      function openDetailConfirm() {
+        detailConfirm.classList.add("is-open");
+        detailConfirm.setAttribute("aria-hidden", "false");
+      }
+
+      function closeDetailConfirm() {
+        detailConfirm.classList.remove("is-open");
+        detailConfirm.setAttribute("aria-hidden", "true");
+      }
+
+      birthInput.addEventListener("input", updateProfileFromForm);
+      document.querySelectorAll("[data-gender]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.gender = button.dataset.gender;
+          document
+            .querySelectorAll("[data-gender]")
+            .forEach((item) => item.classList.remove("is-active"));
+          button.classList.add("is-active");
+          updateProfileFromForm();
+        });
+      });
+
+      document.querySelector("#consultButton").addEventListener("click", () => {
+        showToast("상담 연결은 다음 단계에서 붙일 수 있어요.");
+      });
+
+      document.querySelector("#askButton").addEventListener("click", () => {
+        showToast("AI 상담 질문 화면은 다음 단계에서 연결할 수 있어요.");
+      });
+
+      openSheet.addEventListener("click", () => {
+        updateProfileFromForm();
+        if (state.birth.length !== 8) {
+          showToast("생년월일 8자리를 입력해 주세요.");
+          birthInput.focus();
+          return;
+        }
+        openBottomSheet("premium");
+      });
+      dim.addEventListener("click", closeAll);
+      document.querySelectorAll("[data-close]").forEach((button) => {
+        button.addEventListener("click", closeAll);
+      });
+      sheet.querySelectorAll("[data-back-to]").forEach((button) => {
+        button.addEventListener("click", () => {
+          showStep(button.dataset.backTo, true, "back");
+        });
+      });
+
+      document.querySelectorAll("[data-premium]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.premium = button.dataset.premium;
+          document
+            .querySelectorAll("[data-premium]")
+            .forEach((item) => item.classList.remove("is-selected"));
+          button.classList.add("is-selected");
+          window.setTimeout(() => showStep("need", true), 180);
+        });
+      });
+
+      document.querySelectorAll("[data-need]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.need = button.dataset.need;
+          state.needCopy = button.dataset.needCopy;
+          document
+            .querySelectorAll("[data-need]")
+            .forEach((item) => item.classList.remove("is-selected"));
+          button.classList.add("is-selected");
+          window.setTimeout(showLoadingThenRecommendations, 220);
+        });
+      });
+
+        document.querySelector("#directDesign").addEventListener("click", () => {
+          storeFlowState();
+          window.location.href = "result-1.html?from=direct";
+        });
+
+      document.querySelector("#checkCoverage").addEventListener("click", () => {
+        openDetailConfirm();
+      });
+
+      document.querySelector("#seeOtherPlans").addEventListener("click", () => {
+        stage.classList.remove("modal-open");
+        stage.classList.add("sheet-open");
+        showStep("recommend", true, "back");
+      });
+
+      document.querySelector("#modalClose").addEventListener("click", () => {
+        stage.classList.remove("modal-open");
+        stage.classList.add("sheet-open");
+        showStep("recommend", true, "back");
+      });
+
+      document.querySelector("#startApply").addEventListener("click", () => {
+        storeFlowState();
+        window.location.href = "apply-step-1.html?from=modal";
+      });
+
+      document.querySelector("#detailConfirmCancel").addEventListener("click", () => {
+        closeDetailConfirm();
+      });
+
+      document.querySelector("#detailConfirmAccept").addEventListener("click", () => {
+        closeDetailConfirm();
+        storeFlowState();
+        window.location.href = "result-1.html?from=modal";
+      });
+
+      document.querySelector("#homeButton").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+
+      const pageParams = new URLSearchParams(window.location.search);
+      if (pageParams.get("restore") === "modal") {
+        restoreModalState();
+      } else if (pageParams.get("restore") === "recommend") {
+        restoreRecommendState();
+      } else {
+        syncFormFromState();
+      }
+    </script>
+  </body>
+</html>
+

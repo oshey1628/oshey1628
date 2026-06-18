@@ -1,0 +1,1606 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/lweter",
+    "id": "lweter",
+    "slide": 1,
+    "layoutId": "5acf972d-9a3e-4f71-8ece-d0e939499542",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "6fc8e1d1-1105-4d3e-b4ec-aca2859e6b8e",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F6F8FB",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Noto Sans KR"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "5acf972d-9a3e-4f71-8ece-d0e939499542",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "6fc8e1d1-1105-4d3e-b4ec-aca2859e6b8e",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "6fc8e1d1-1105-4d3e-b4ec-aca2859e6b8e",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rmhk3q5o",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#F6F8FB",
+      "lineColor": "#F6F8FB",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7adsji5",
+      "id": "2",
+      "bbox": [
+        0,
+        0,
+        388,
+        720
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#071C3A",
+      "lineColor": "#071C3A",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9s36hcrm",
+      "id": "3",
+      "bbox": [
+        64,
+        64,
+        210,
+        34
+      ],
+      "geometry": "roundRect",
+      "text": "팩건강보험 가입자수 확대 전략",
+      "textPreview": "팩건강보험 가입자수 확대 전략",
+      "resolvedFontSize": 13.46,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 18,
+        "typeface": "Noto Sans KR",
+        "color": "#DCEBFF",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.75,
+        "insets": {
+          "top": 3,
+          "right": 8,
+          "bottom": 3,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "팩건강보험 가입자수 확대"
+          },
+          {
+            "index": 2,
+            "text": "전략"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "팩건강보험 가입자수 확대 전략",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Noto Sans KR",
+            "color": "#DCEBFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "팩건강보험 가입자수 확대 전략",
+              "fontSize": 18,
+              "typeface": "Noto Sans KR",
+              "color": "#DCEBFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#16375F",
+      "lineColor": "#2A4E7A",
+      "lineWidth": 1
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yd0z6103",
+      "id": "4",
+      "bbox": [
+        62,
+        136,
+        275,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Sales\nAgent",
+      "textPreview": "Sales | Agent",
+      "resolvedFontSize": 53.51,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 57.2,
+        "typeface": "Noto Sans KR",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.94,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Sales"
+          },
+          {
+            "index": 2,
+            "text": "Agent"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Sales",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 57.2,
+            "typeface": "Noto Sans KR",
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sales",
+              "fontSize": 57.2,
+              "typeface": "Noto Sans KR",
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Agent",
+          "lineSpacingPercent": 95000,
+          "resolvedTextStyle": {
+            "fontSize": 57.2,
+            "typeface": "Noto Sans KR",
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 0.95
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Agent",
+              "fontSize": 57.2,
+              "typeface": "Noto Sans KR",
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 0.95
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rytsvu9k",
+      "id": "5",
+      "bbox": [
+        64,
+        286,
+        260,
+        92
+      ],
+      "geometry": "rect",
+      "text": "AI 기술 도입이 아니라,\n고객별 니즈에 맞춘 가입 경험의 변화",
+      "textPreview": "AI 기술 도입이 아니라, | 고객별 니즈에 맞춘 가입 경험의 변화",
+      "resolvedFontSize": 19.77,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23.11,
+        "typeface": "Noto Sans KR",
+        "color": "#D6E5FA",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.86,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AI 기술 도입이 아니라,"
+          },
+          {
+            "index": 2,
+            "text": "고객별 니즈에 맞춘 가입"
+          },
+          {
+            "index": 3,
+            "text": "경험의 변화"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI 기술 도입이 아니라,",
+          "lineSpacingPercent": 118000,
+          "resolvedTextStyle": {
+            "fontSize": 23.11,
+            "typeface": "Noto Sans KR",
+            "color": "#D6E5FA",
+            "alignment": "left",
+            "lineSpacing": 1.18
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI 기술 도입이 아니라,",
+              "fontSize": 23.11,
+              "typeface": "Noto Sans KR",
+              "color": "#D6E5FA",
+              "alignment": "left",
+              "lineSpacing": 1.18
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "고객별 니즈에 맞춘 가입 경험의 변화",
+          "lineSpacingPercent": 118000,
+          "resolvedTextStyle": {
+            "fontSize": 23.11,
+            "typeface": "Noto Sans KR",
+            "color": "#D6E5FA",
+            "alignment": "left",
+            "lineSpacing": 1.18
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "고객별 니즈에 맞춘 가입 경험의 변화",
+              "fontSize": 23.11,
+              "typeface": "Noto Sans KR",
+              "color": "#D6E5FA",
+              "alignment": "left",
+              "lineSpacing": 1.18
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gfmlkjm1",
+      "id": "6",
+      "bbox": [
+        438,
+        72,
+        700,
+        42
+      ],
+      "geometry": "rect",
+      "text": "탐색부터 청약 완주까지, 고객이 막히는 순간을 Agent가 먼저 줄인다.",
+      "textPreview": "탐색부터 청약 완주까지, 고객이 막히는 순간을 Agent가 먼저 줄인다.",
+      "resolvedFontSize": 23.24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 29.71,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.78,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "탐색부터 청약 완주까지, 고객이 막히는 순간을 Agent가 먼저 줄인다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "탐색부터 청약 완주까지, 고객이 막히는 순간을 Agent가 먼저 줄인다.",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 29.71,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "탐색부터 청약 완주까지, 고객이 막히는 순간을 Agent가 먼저 줄인다.",
+              "fontSize": 29.71,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/90je9cvi",
+      "id": "7",
+      "bbox": [
+        438,
+        142,
+        220,
+        26
+      ],
+      "geometry": "rect",
+      "text": "핵심 전환 가설",
+      "textPreview": "핵심 전환 가설",
+      "resolvedFontSize": 13.04,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19.8,
+        "typeface": "Noto Sans KR",
+        "color": "#1167D8",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.66,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "핵심 전환 가설"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "핵심 전환 가설",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19.8,
+            "typeface": "Noto Sans KR",
+            "color": "#1167D8",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "핵심 전환 가설",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#1167D8",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ylc7u54z",
+      "id": "8",
+      "bbox": [
+        438,
+        170,
+        724,
+        78
+      ],
+      "geometry": "rect",
+      "text": "고객이 보험을 포기하는 이유는 관심 부족보다 설계 탐색·용어 이해·청약 진행의 마찰일 가능성이 크다.",
+      "textPreview": "고객이 보험을 포기하는 이유는 관심 부족보다 설계 탐색·용어 이해·청약 진행의 마찰일 가능성이 크다.",
+      "resolvedFontSize": 27.01,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 30.8,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.88,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "고객이 보험을 포기하는 이유는 관심 부족보다 설계"
+          },
+          {
+            "index": 2,
+            "text": "탐색·용어 이해·청약 진행의 마찰일 가능성이 크다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "고객이 보험을 포기하는 이유는 관심 부족보다 설계 탐색·용어 이해·청약 진행의 마찰일 가능성이 크다.",
+          "lineSpacingPercent": 108000,
+          "resolvedTextStyle": {
+            "fontSize": 30.8,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "alignment": "left",
+            "lineSpacing": 1.08
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "고객이 보험을 포기하는 이유는 ",
+              "fontSize": 30.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "alignment": "left",
+              "lineSpacing": 1.08
+            },
+            {
+              "index": 2,
+              "text": "관심 부족",
+              "fontSize": 30.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.08
+            },
+            {
+              "index": 3,
+              "text": "보다 ",
+              "fontSize": 30.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "alignment": "left",
+              "lineSpacing": 1.08
+            },
+            {
+              "index": 4,
+              "text": "설계 탐색·용어 이해·청약 진행의 마찰",
+              "fontSize": 30.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.08
+            },
+            {
+              "index": 5,
+              "text": "일 가능성이 크다.",
+              "fontSize": 30.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "alignment": "left",
+              "lineSpacing": 1.08
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r65wjudg",
+      "id": "9",
+      "bbox": [
+        438,
+        292,
+        218,
+        172
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E0E6EF",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vahoza1g",
+      "id": "10",
+      "bbox": [
+        458,
+        312,
+        46,
+        28
+      ],
+      "geometry": "roundRect",
+      "text": "01",
+      "textPreview": "01",
+      "resolvedFontSize": 11.5,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 18,
+        "typeface": "Noto Sans KR",
+        "color": "#1167D8",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.64,
+        "insets": {
+          "top": 3,
+          "right": 8,
+          "bottom": 3,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Noto Sans KR",
+            "color": "#1167D8",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01",
+              "fontSize": 18,
+              "typeface": "Noto Sans KR",
+              "color": "#1167D8",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#DCEBFF",
+      "lineColor": "#DCEBFF",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6tovahoz",
+      "id": "11",
+      "bbox": [
+        458,
+        352,
+        160,
+        32
+      ],
+      "geometry": "rect",
+      "text": "탐색",
+      "textPreview": "탐색",
+      "resolvedFontSize": 17.39,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28.6,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.61,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "탐색"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "탐색",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 28.6,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "탐색",
+              "fontSize": 28.6,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dg7adsji",
+      "id": "12",
+      "bbox": [
+        458,
+        396,
+        170,
+        54
+      ],
+      "geometry": "rect",
+      "text": "나에게 맞는 보장과 보험료가 불명확",
+      "textPreview": "나에게 맞는 보장과 보험료가 불명확",
+      "resolvedFontSize": 17.11,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18.69,
+        "typeface": "Noto Sans KR",
+        "color": "#657084",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.92,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "나에게 맞는 보장과"
+          },
+          {
+            "index": 2,
+            "text": "보험료가 불명확"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "나에게 맞는 보장과 보험료가 불명확",
+          "lineSpacingPercent": 112000,
+          "resolvedTextStyle": {
+            "fontSize": 18.69,
+            "typeface": "Noto Sans KR",
+            "color": "#657084",
+            "alignment": "left",
+            "lineSpacing": 1.12
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "나에게 맞는 보장과 보험료가 불명확",
+              "fontSize": 18.69,
+              "typeface": "Noto Sans KR",
+              "color": "#657084",
+              "alignment": "left",
+              "lineSpacing": 1.12
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ovahoza1",
+      "id": "13",
+      "bbox": [
+        686,
+        292,
+        218,
+        172
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E0E6EF",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z25kb6xk",
+      "id": "14",
+      "bbox": [
+        706,
+        312,
+        46,
+        28
+      ],
+      "geometry": "roundRect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 11.5,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 18,
+        "typeface": "Noto Sans KR",
+        "color": "#00A88F",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.64,
+        "insets": {
+          "top": 3,
+          "right": 8,
+          "bottom": 3,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Noto Sans KR",
+            "color": "#00A88F",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 18,
+              "typeface": "Noto Sans KR",
+              "color": "#00A88F",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#DDF7F2",
+      "lineColor": "#DDF7F2",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6hcrmhk3",
+      "id": "15",
+      "bbox": [
+        706,
+        352,
+        160,
+        32
+      ],
+      "geometry": "rect",
+      "text": "판단",
+      "textPreview": "판단",
+      "resolvedFontSize": 17.39,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28.6,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.61,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "판단"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "판단",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 28.6,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "판단",
+              "fontSize": 28.6,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8v6psfi",
+      "id": "16",
+      "bbox": [
+        706,
+        396,
+        170,
+        54
+      ],
+      "geometry": "rect",
+      "text": "보장항목·보험용어가 어려워 확신 부족",
+      "textPreview": "보장항목·보험용어가 어려워 확신 부족",
+      "resolvedFontSize": 17.11,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18.69,
+        "typeface": "Noto Sans KR",
+        "color": "#657084",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.92,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "보장항목·보험용어가"
+          },
+          {
+            "index": 2,
+            "text": "어려워 확신 부족"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "보장항목·보험용어가 어려워 확신 부족",
+          "lineSpacingPercent": 112000,
+          "resolvedTextStyle": {
+            "fontSize": 18.69,
+            "typeface": "Noto Sans KR",
+            "color": "#657084",
+            "alignment": "left",
+            "lineSpacing": 1.12
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "보장항목·보험용어가 어려워 확신 부족",
+              "fontSize": 18.69,
+              "typeface": "Noto Sans KR",
+              "color": "#657084",
+              "alignment": "left",
+              "lineSpacing": 1.12
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/onyd0z61",
+      "id": "17",
+      "bbox": [
+        934,
+        292,
+        218,
+        172
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#E0E6EF",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vy90je9c",
+      "id": "18",
+      "bbox": [
+        954,
+        312,
+        46,
+        28
+      ],
+      "geometry": "roundRect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 11.5,
+      "resolvedTextStyle": {
+        "anchor": 2,
+        "fontSize": 18,
+        "typeface": "Noto Sans KR",
+        "color": "#A86E00",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.64,
+        "insets": {
+          "top": 3,
+          "right": 8,
+          "bottom": 3,
+          "left": 8
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Noto Sans KR",
+            "color": "#A86E00",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 18,
+              "typeface": "Noto Sans KR",
+              "color": "#A86E00",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "#FFF1CF",
+      "lineColor": "#FFF1CF",
+      "lineWidth": 1
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6dcbulwv",
+      "id": "19",
+      "bbox": [
+        954,
+        352,
+        160,
+        32
+      ],
+      "geometry": "rect",
+      "text": "청약",
+      "textPreview": "청약",
+      "resolvedFontSize": 17.39,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28.6,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.61,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "청약"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "청약",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 28.6,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "bold": true,
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "청약",
+              "fontSize": 28.6,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ahoza1gv",
+      "id": "20",
+      "bbox": [
+        954,
+        396,
+        170,
+        54
+      ],
+      "geometry": "rect",
+      "text": "입력·동의·인증 단계에서 피로와 이탈 발생",
+      "textPreview": "입력·동의·인증 단계에서 피로와 이탈 발생",
+      "resolvedFontSize": 15.1,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18.69,
+        "typeface": "Noto Sans KR",
+        "color": "#657084",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.81,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "입력·동의·인증 단계에서"
+          },
+          {
+            "index": 2,
+            "text": "피로와 이탈 발생"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "입력·동의·인증 단계에서 피로와 이탈 발생",
+          "lineSpacingPercent": 112000,
+          "resolvedTextStyle": {
+            "fontSize": 18.69,
+            "typeface": "Noto Sans KR",
+            "color": "#657084",
+            "alignment": "left",
+            "lineSpacing": 1.12
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "입력·동의·인증 단계에서 피로와 이탈 발생",
+              "fontSize": 18.69,
+              "typeface": "Noto Sans KR",
+              "color": "#657084",
+              "alignment": "left",
+              "lineSpacing": 1.12
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/32lszqtc",
+      "id": "21",
+      "bbox": [
+        438,
+        510,
+        770,
+        88
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#EDF5FF",
+      "lineColor": "#CFE2FF",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sneloj2t",
+      "id": "22",
+      "bbox": [
+        466,
+        524,
+        700,
+        60
+      ],
+      "geometry": "rect",
+      "text": "추천 방향: 전환 여정의 마찰 지점별로 역할을 분리한 3단계 Agent 설계\n기대효과: 보험료 확인 완료율, 가입 시작률, 청약 완료율을 단계별로 끌어올리는 구조",
+      "textPreview": "추천 방향: 전환 여정의 마찰 지점별로 역할을 분리한 3단계 Agent 설계 | 기대효과: 보험료 확인 완료율, 가입 시작률, 청약 완료율을 단계별로 끌어올리는 구조",
+      "resolvedFontSize": 17.76,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19.8,
+        "typeface": "Noto Sans KR",
+        "color": "#162033",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.9,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "추천 방향: 전환 여정의 마찰 지점별로 역할을 분리한 3단계 Agent 설계"
+          },
+          {
+            "index": 2,
+            "text": "기대효과: 보험료 확인 완료율, 가입 시작률, 청약 완료율을 단계별로 끌어올리는 구조"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "추천 방향: 전환 여정의 마찰 지점별로 역할을 분리한 3단계 Agent 설계",
+          "lineSpacingPercent": 122000,
+          "resolvedTextStyle": {
+            "fontSize": 19.8,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "alignment": "left",
+            "lineSpacing": 1.22
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "추천 방향: ",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.22
+            },
+            {
+              "index": 2,
+              "text": "전환 여정의 마찰 지점별로 역할을 분리한 3단계 Agent 설계",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "alignment": "left",
+              "lineSpacing": 1.22
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "기대효과: 보험료 확인 완료율, 가입 시작률, 청약 완료율을 단계별로 끌어올리는 구조",
+          "lineSpacingPercent": 122000,
+          "resolvedTextStyle": {
+            "fontSize": 19.8,
+            "typeface": "Noto Sans KR",
+            "color": "#162033",
+            "alignment": "left",
+            "lineSpacing": 1.22
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "기대효과: ",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "bold": true,
+              "alignment": "left",
+              "lineSpacing": 1.22
+            },
+            {
+              "index": 2,
+              "text": "보험료 확인 완료율, 가입 시작률, 청약 완료율을 단계별로 끌어올리는 구조",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#162033",
+              "alignment": "left",
+              "lineSpacing": 1.22
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l87ed8ba",
+      "id": "23",
+      "bbox": [
+        64,
+        674,
+        730,
+        22
+      ],
+      "geometry": "rect",
+      "text": "보고용 컨셉안 | 팩건강보험 가입자수 확대",
+      "textPreview": "보고용 컨셉안 | 팩건강보험 가입자수 확대",
+      "resolvedFontSize": 10.14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Noto Sans KR",
+        "color": "#7A8494",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.56,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "보고용 컨셉안 | 팩건강보험 가입자수 확대"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "보고용 컨셉안 | 팩건강보험 가입자수 확대",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Noto Sans KR",
+            "color": "#7A8494",
+            "alignment": "left",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "보고용 컨셉안 | 팩건강보험 가입자수 확대",
+              "fontSize": 18,
+              "typeface": "Noto Sans KR",
+              "color": "#7A8494",
+              "alignment": "left",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/at47y1kr",
+      "id": "24",
+      "bbox": [
+        1164,
+        662,
+        52,
+        32
+      ],
+      "geometry": "rect",
+      "text": "01",
+      "textPreview": "01",
+      "resolvedFontSize": 17.39,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19.8,
+        "typeface": "Noto Sans KR",
+        "color": "#A1A9B7",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.88,
+        "insets": {
+          "top": 4,
+          "right": 4,
+          "bottom": 4,
+          "left": 4
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01",
+          "lineSpacingPercent": 115000,
+          "resolvedTextStyle": {
+            "fontSize": 19.8,
+            "typeface": "Noto Sans KR",
+            "color": "#A1A9B7",
+            "bold": true,
+            "alignment": "right",
+            "lineSpacing": 1.15
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01",
+              "fontSize": 19.8,
+              "typeface": "Noto Sans KR",
+              "color": "#A1A9B7",
+              "bold": true,
+              "alignment": "right",
+              "lineSpacing": 1.15
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

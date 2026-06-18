@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>팩건강보험 Sales Agent 보고 페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071c3a;
+      --blue: #1167d8;
+      --blue-50: #eef6ff;
+      --blue-100: #dcecff;
+      --mint: #00a88f;
+      --mint-50: #effbf8;
+      --mint-100: #d8f5ef;
+      --amber: #f2b84b;
+      --amber-50: #fff7e5;
+      --ink: #162033;
+      --muted: #657084;
+      --line: #dce4ef;
+      --bg: #f6f8fb;
+      --white: #ffffff;
+      --shadow: 0 18px 48px rgba(7, 28, 58, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      letter-spacing: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      border-bottom: 1px solid rgba(220, 228, 239, 0.8);
+      background: rgba(246, 248, 251, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--mint));
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      background: var(--white);
+      color: var(--blue);
+      box-shadow: 0 8px 20px rgba(7, 28, 58, 0.08);
+    }
+
+    main {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    section {
+      min-height: calc(100vh - 64px);
+      padding: 84px 64px;
+    }
+
+    .inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 16px;
+      border: 1px solid rgba(17, 103, 216, 0.24);
+      border-radius: 999px;
+      background: var(--blue-50);
+      color: var(--blue);
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin-top: 28px;
+      font-size: clamp(58px, 6.2vw, 92px);
+      line-height: 0.98;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    h2 {
+      font-size: clamp(38px, 3.7vw, 56px);
+      line-height: 1.08;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    h3 {
+      font-size: 26px;
+      line-height: 1.22;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 23px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(440px, 1.08fr);
+      gap: 56px;
+      align-items: center;
+      background: linear-gradient(90deg, #f5f8fc 0%, #f7fbff 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-panel {
+      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .hypothesis {
+      padding: 28px 30px;
+      border-radius: 18px;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hypothesis strong {
+      color: #9fd1ff;
+    }
+
+    .hypothesis p {
+      margin-top: 10px;
+      font-size: 25px;
+      line-height: 1.38;
+      font-weight: 700;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .stage {
+      min-height: 180px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
+    }
+
+    .stage-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 46px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--blue-100);
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .stage h3 {
+      margin-top: 20px;
+    }
+
+    .stage p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.48;
+      font-weight: 600;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 44px;
+    }
+
+    .section-head p {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.48;
+      font-weight: 500;
+    }
+
+    .agent-section {
+      background: var(--white);
+    }
+
+    .agent-flow {
+      display: grid;
+      grid-template-columns: 1fr 44px 1fr 44px 1fr;
+      align-items: stretch;
+      gap: 18px;
+    }
+
+    .agent {
+      position: relative;
+      min-height: 500px;
+      padding: 34px 32px 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .agent.blue {
+      background: #eff6ff;
+    }
+
+    .agent.mint {
+      background: var(--mint-50);
+    }
+
+    .agent.amber {
+      background: var(--amber-50);
+    }
+
+    .agent-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .icon {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+    }
+
+    .icon-symbol {
+      width: 42px;
+      height: 42px;
+      border: 7px solid currentColor;
+      border-radius: 50%;
+      color: var(--blue);
+      box-shadow: inset 0 0 0 9px var(--white);
+      background: currentColor;
+    }
+
+    .mint .icon-symbol {
+      width: 48px;
+      height: 38px;
+      border-radius: 8px;
+      color: var(--mint);
+      background: transparent;
+      box-shadow: inset 0 -12px 0 -7px currentColor;
+    }
+
+    .amber .icon-symbol {
+      width: 46px;
+      height: 36px;
+      border-radius: 7px;
+      color: var(--amber);
+      background: transparent;
+      box-shadow: inset -15px -15px 0 -12px currentColor;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .mint .tag {
+      color: var(--mint);
+    }
+
+    .amber .tag {
+      color: #b87900;
+    }
+
+    .agent h3 {
+      margin-top: 52px;
+      font-size: 32px;
+    }
+
+    .agent-block {
+      margin-top: 34px;
+    }
+
+    .agent-block b {
+      display: block;
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .mint .agent-block b {
+      color: var(--mint);
+    }
+
+    .amber .agent-block b {
+      color: #b87900;
+    }
+
+    .agent-block p {
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .effect {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 28px;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+      color: var(--blue);
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .mint .effect {
+      color: var(--mint);
+    }
+
+    .amber .effect {
+      color: #b87900;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arrow::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 28px solid #c8d2e0;
+    }
+
+    .execution-section {
+      background: var(--bg);
+    }
+
+    .execution-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.65fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .funnel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .funnel-step {
+      position: relative;
+      min-height: 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
+      text-align: center;
+    }
+
+    .funnel-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -22px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      border-left: 18px solid #b9c5d4;
+    }
+
+    .funnel-step b {
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .funnel-step span {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr 0.85fr;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .metric-band {
+      min-height: 96px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--blue-100);
+    }
+
+    .metric-band.mint {
+      background: var(--mint-100);
+    }
+
+    .metric-band.amber {
+      background: #ffefc4;
+    }
+
+    .metric-band b {
+      display: block;
+      color: var(--blue);
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .metric-band.mint b {
+      color: var(--mint);
+    }
+
+    .metric-band.amber b {
+      color: #b87900;
+    }
+
+    .metric-band span {
+      display: block;
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.42;
+      font-weight: 600;
+    }
+
+    .order {
+      min-height: 274px;
+      padding: 34px;
+      border-radius: 20px;
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .order h3 {
+      color: var(--white);
+      font-size: 25px;
+    }
+
+    .order ol {
+      margin: 28px 0 0;
+      padding-left: 28px;
+      font-size: 25px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .info {
+      min-height: 220px;
+      padding: 28px 30px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+    }
+
+    .info b {
+      color: var(--blue);
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .info:nth-child(2) b {
+      color: var(--mint);
+    }
+
+    .info:nth-child(3) b {
+      color: #b87900;
+    }
+
+    .info p {
+      margin-top: 22px;
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.48;
+      font-weight: 500;
+    }
+
+    .closing {
+      padding: 44px 64px 64px;
+      background: var(--navy);
+      color: #dce8f8;
+    }
+
+    .closing .inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .closing strong {
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .closing span {
+      color: #9db2ce;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .execution-grid,
+      .bottom-grid,
+      .agent-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        height: 34px;
+        transform: rotate(90deg);
+      }
+
+      .funnel-row,
+      .metric-row {
+        grid-template-columns: 1fr;
+      }
+
+      .funnel-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .agent {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        height: auto;
+        min-height: 64px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 20px;
+        gap: 10px;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      section {
+        min-height: auto;
+        padding: 56px 22px;
+      }
+
+      h1 {
+        font-size: 54px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .hero-panel,
+      .agent,
+      .funnel,
+      .order,
+      .info {
+        border-radius: 16px;
+      }
+
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .closing {
+        padding: 36px 22px 48px;
+      }
+
+      .closing .inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>팩건강보험 Sales Agent</span>
+    </div>
+    <nav class="nav" aria-label="페이지 이동">
+      <a href="#why">전략</a>
+      <a href="#agents">Agent 구성</a>
+      <a href="#execution">실행·측정</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="why">
+      <div class="inner hero-copy">
+        <span class="eyebrow">팩건강보험 가입자수 확대 전략</span>
+        <h1>Sales<br>Agent</h1>
+        <p class="lead">AI 기술을 단순 도입하는 것이 아니라, 고객별 니즈에 맞춰 탐색부터 청약 완주까지 가입 경험을 바꾸는 전환 Agent 제안입니다.</p>
+      </div>
+      <div class="hero-panel">
+        <div class="hypothesis">
+          <strong>핵심 전환 가설</strong>
+          <p>고객이 보험을 포기하는 이유는 관심 부족보다 설계 탐색·용어 이해·청약 진행의 마찰일 가능성이 큽니다.</p>
+        </div>
+        <div class="stage-grid">
+          <article class="stage">
+            <span class="stage-num">01</span>
+            <h3>탐색</h3>
+            <p>나에게 맞는 보장과 보험료가 불명확</p>
+          </article>
+          <article class="stage">
+            <span class="stage-num">02</span>
+            <h3>판단</h3>
+            <p>보장항목·보험용어가 어려워 확신 부족</p>
+          </article>
+          <article class="stage">
+            <span class="stage-num">03</span>
+            <h3>청약</h3>
+            <p>입력·동의·인증 단계에서 피로와 이탈 발생</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="agent-section" id="agents">
+      <div class="inner">
+        <div class="section-head">
+          <h2>Sales Agent 서비스 구성</h2>
+          <p>3개 Agent가 고객 가입 여정에서 각각 다른 막힘을 줄이고, 다음 단계로 넘어갈 이유를 만들어줍니다.</p>
+        </div>
+        <div class="agent-flow">
+          <article class="agent blue">
+            <div class="agent-top">
+              <div class="icon"><span class="icon-symbol" aria-hidden="true"></span></div>
+              <span class="tag">탐색 단축</span>
+            </div>
+            <h3>맞춤설계 Agent</h3>
+            <div class="agent-block">
+              <b>고객 입력</b>
+              <p>나이·성별·월보험료·집중 보장 니즈</p>
+            </div>
+            <div class="agent-block">
+              <b>Agent 개입</b>
+              <p>추천 설계안 3개 제시<br>셀프계산 단계 부담 축소</p>
+            </div>
+            <div class="effect">보험료 확인까지의 진입 장벽 감소</div>
+          </article>
+          <div class="arrow" aria-hidden="true"></div>
+          <article class="agent mint">
+            <div class="agent-top">
+              <div class="icon"><span class="icon-symbol" aria-hidden="true"></span></div>
+              <span class="tag">판단 확신</span>
+            </div>
+            <h3>설계이해 Agent</h3>
+            <div class="agent-block">
+              <b>고객 입력</b>
+              <p>보험용어·보장항목·조절 이유</p>
+            </div>
+            <div class="agent-block">
+              <b>Agent 개입</b>
+              <p>친근한 표현으로 의미 설명<br>고객이 직접 조정할 근거 제공</p>
+            </div>
+            <div class="effect">가입 판단 신뢰 강화</div>
+          </article>
+          <div class="arrow" aria-hidden="true"></div>
+          <article class="agent amber">
+            <div class="agent-top">
+              <div class="icon"><span class="icon-symbol" aria-hidden="true"></span></div>
+              <span class="tag">완주 회복</span>
+            </div>
+            <h3>청약완주 Agent</h3>
+            <div class="agent-block">
+              <b>고객 입력</b>
+              <p>청약 단계의 막힘·이탈 신호</p>
+            </div>
+            <div class="agent-block">
+              <b>Agent 개입</b>
+              <p>도움말·임시저장·이어하기 안내<br>완결까지 인내력 있게 독려</p>
+            </div>
+            <div class="effect">청약 중도 이탈 감소와 재개율 증가</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="execution-section" id="execution">
+      <div class="inner">
+        <div class="section-head">
+          <h2>실행은 작고 빠른 검증으로 시작</h2>
+          <p>내부 퍼널 데이터로 병목을 확인하고, Agent별 중간지표를 먼저 개선합니다.</p>
+        </div>
+        <div class="execution-grid">
+          <div class="funnel">
+            <div class="funnel-row">
+              <div class="funnel-step"><b>유입</b><span>상품 탐색</span></div>
+              <div class="funnel-step"><b>보험료</b><span>확인 완료</span></div>
+              <div class="funnel-step"><b>설계</b><span>선택·조정</span></div>
+              <div class="funnel-step"><b>청약</b><span>시작</span></div>
+              <div class="funnel-step"><b>가입</b><span>완료</span></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric-band">
+                <b>맞춤설계 Agent</b>
+                <span>보험료 확인 완료율 / 추천안 선택률</span>
+              </div>
+              <div class="metric-band mint">
+                <b>설계이해 Agent</b>
+                <span>보장항목 이해도 / 설계 조정 후 가입 시작률</span>
+              </div>
+              <div class="metric-band amber">
+                <b>청약완주 Agent</b>
+                <span>청약 완료율 / 이어하기 재개율</span>
+              </div>
+            </div>
+          </div>
+          <aside class="order">
+            <h3>추천 실행 순서</h3>
+            <ol>
+              <li>현재 퍼널 병목 확인</li>
+              <li>맞춤설계 Agent MVP</li>
+              <li>설계이해·청약완주 확장</li>
+            </ol>
+          </aside>
+        </div>
+        <div class="bottom-grid">
+          <article class="info">
+            <b>1차 실험</b>
+            <p>고객 입력 4개만으로 추천 설계안 3개 노출<br>셀프계산 대비 보험료 확인 완료율 비교<br>추천 근거 표시</p>
+          </article>
+          <article class="info">
+            <b>주요 지표</b>
+            <p>가입 완료 건수 / 가입 완료율<br>보험료 확인 후 가입 시작률<br>청약 이탈률 / 이어하기 재개율</p>
+          </article>
+          <article class="info">
+            <b>가드레일</b>
+            <p>고객 오해·민원·문의 증가 여부<br>부적절한 추천 표현 및 심의 우려<br>비정상 철회·해지 신호</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="closing">
+    <div class="inner">
+      <strong>보고용 컨셉안 | 팩건강보험 가입자수 확대</strong>
+      <span>Sales Agent는 기술 기능이 아니라 고객의 탐색·판단·완주 경험을 바꾸는 전환 서비스입니다.</span>
+    </div>
+  </footer>
+</body>
+</html>

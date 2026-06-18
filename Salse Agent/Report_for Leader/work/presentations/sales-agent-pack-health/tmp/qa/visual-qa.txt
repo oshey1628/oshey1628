@@ -1,0 +1,3 @@
+Visual QA completed after rendering all 3 slides.
+Checked: expected slide count, high-level text fit, card alignment, footer numbering, and user-facing PNG exports.
+Caveat: final business performance values are not included because no internal funnel metrics were provided.

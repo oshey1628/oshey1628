@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>팩 건강보험 청약시작</title>
+    <link rel="stylesheet" href="assets/fonts/noto-sans-kr.css" />
+    <style>
+      :root {
+        --blue: #2f86ee;
+        --text: #171b26;
+        --muted: #8c95a5;
+        --app-safe-top: env(safe-area-inset-top, 0px);
+        --app-safe-bottom: env(safe-area-inset-bottom, 0px);
+        --app-viewport-height: 100svh;
+      }
+
+      @supports (height: 100dvh) {
+        :root {
+          --app-viewport-height: 100dvh;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: var(--app-viewport-height);
+        background: #edf7ff;
+        font-family: "Noto Sans KR", sans-serif;
+        overflow: hidden;
+      }
+
+      body {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .screen {
+        width: min(100vw, 430px);
+        height: var(--app-viewport-height);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        animation: pageSlideIn 280ms cubic-bezier(0.2, 0.82, 0.22, 1) both;
+      }
+
+      @keyframes pageSlideIn {
+        from {
+          opacity: 0.72;
+          transform: translateX(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .status-bar {
+        height: 34px;
+        padding: 8px 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #222734;
+        font-size: 14px;
+        background: #fff;
+      }
+
+      .status-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #303744;
+        font-size: 12px;
+      }
+
+      .battery {
+        min-width: 26px;
+        height: 17px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 9px;
+        background: #555b66;
+        color: #fff;
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .apply-header {
+        padding: 6px 14px 0;
+        background: #fff;
+      }
+
+      .nav-bar {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) 58px 26px;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .back-button,
+      .menu-button {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .back-button::before {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-left: 1.8px solid currentColor;
+        border-bottom: 1.8px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .menu-button::before {
+        content: "⋮";
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .title-stack {
+        min-width: 0;
+        text-align: center;
+      }
+
+      .title-stack strong {
+        display: block;
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.15;
+      }
+
+      .title-stack span {
+        display: block;
+        margin-top: 4px;
+        color: #9aa3b2;
+        font-size: 13px;
+        line-height: 1.1;
+      }
+
+      .consult-button {
+        width: 58px;
+        height: 38px;
+        padding: 0;
+        border: 1px solid #dfe5ec;
+        border-radius: 999px;
+        background: #fff;
+        color: #2f3542;
+        font-size: 15px;
+      }
+
+      .apply-top {
+        padding: 10px 18px 0;
+        background: #fff;
+      }
+
+      .progress-track {
+        position: relative;
+        height: 8px;
+        border-radius: 999px;
+        background: #eef2f8;
+        overflow: visible;
+      }
+
+      .progress-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #2b83ed 0%, #4b9cff 100%);
+      }
+
+      .progress-badge {
+        position: relative;
+        width: fit-content;
+        margin-top: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      .progress-badge::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        left: 34px;
+        width: 14px;
+        height: 12px;
+        background: inherit;
+        clip-path: polygon(50% 0, 0 100%, 100% 100%);
+      }
+
+      .hero-copy {
+        margin-top: 10px;
+      }
+
+      .hero-copy .eyebrow {
+        color: var(--blue);
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .hero-copy h1 {
+        margin: 8px 0 0;
+        color: var(--text);
+        font-size: 31px;
+        line-height: 1.18;
+        font-weight: 400;
+      }
+
+      .hero-copy p {
+        margin: 24px 0 0;
+        color: #7c8596;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .image-shell {
+        flex: 1 1 auto;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .image-shell img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transform: translateY(-27.6%);
+      }
+
+      .next-hit {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 42px;
+        height: 86px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .toast {
+        position: absolute;
+        left: 50%;
+        bottom: 146px;
+        z-index: 5;
+        min-width: 230px;
+        max-width: calc(100% - 40px);
+        padding: 13px 16px;
+        border-radius: 14px;
+        background: rgba(19, 35, 58, 0.94);
+        color: #fff;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.45;
+        opacity: 0;
+        transform: translateX(-50%) translateY(8px);
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .home-hit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 6;
+        width: 88px;
+        height: 88px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      @media (min-width: 431px) {
+        .screen {
+          max-height: 932px;
+          border-radius: 28px;
+          box-shadow: 0 24px 80px rgba(15, 67, 125, 0.18);
+        }
+      }
+
+      @media (max-width: 430px) {
+        body {
+          background: #fff;
+        }
+
+        .screen {
+          width: 100vw;
+          min-height: var(--app-viewport-height);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="screen" aria-label="청약 시작 화면">
+      <button class="home-hit" id="homeButton" aria-label="상품상세페이지로 이동"></button>
+      <div class="status-bar" aria-hidden="true">
+        <span>SKT 3:58</span>
+        <div class="status-icons">
+          <span>5G</span>
+          <span class="battery">81</span>
+        </div>
+      </div>
+
+      <header class="apply-header">
+        <div class="nav-bar">
+          <button class="back-button" id="backButton" aria-label="뒤로가기"></button>
+          <div class="title-stack">
+            <strong>팩 건강보험</strong>
+            <span id="headerPriceOverlay">95,072원</span>
+          </div>
+          <button class="consult-button" type="button">상담</button>
+          <button class="menu-button" type="button" aria-label="더보기"></button>
+        </div>
+      </header>
+
+      <section class="apply-top">
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-badge">8%</div>
+        <div class="hero-copy">
+          <div class="eyebrow">팩 건강보험</div>
+          <h1>가입을 시작해 볼까요?</h1>
+          <p>삼성생명을 믿고 선택해주셔서 감사합니다.</p>
+        </div>
+      </section>
+
+      <div class="image-shell">
+        <img src="assets/apply-start-full.jpg" alt="청약 시작하기 화면" />
+      </div>
+
+      <button class="next-hit" id="nextButton" aria-label="다음"></button>
+      <div class="toast" id="toast">이후 청약 프로세스는<br />기존 프로세스와 동일합니다</div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const headerPriceOverlay = document.querySelector("#headerPriceOverlay");
+      const toast = document.querySelector("#toast");
+
+      function parseNumber(value) {
+        return Number(String(value || "").replace(/[^0-9]/g, ""));
+      }
+
+      function formatNumber(value) {
+        return new Intl.NumberFormat("ko-KR").format(value);
+      }
+
+      function applySelectedPrice() {
+        const raw = window.sessionStorage.getItem("packFlowState");
+        if (!raw) return;
+
+        try {
+          const saved = JSON.parse(raw);
+          const monthlyPrice = parseNumber(saved?.selectedPlan?.price);
+          if (!monthlyPrice) return;
+          headerPriceOverlay.textContent = `${formatNumber(monthlyPrice)}원`;
+        } catch (error) {
+          console.warn("Failed to restore apply step price state.", error);
+        }
+      }
+
+      function showToast(message) {
+        toast.innerHTML = message;
+        toast.classList.add("show");
+        window.clearTimeout(showToast.timerId);
+        showToast.timerId = window.setTimeout(() => {
+          toast.classList.remove("show");
+        }, 1800);
+      }
+
+      applySelectedPrice();
+
+      document.querySelector("#backButton").addEventListener("click", () => {
+        const source = params.get("from");
+        if (source === "modal") {
+          window.location.href = "index.html?restore=modal";
+          return;
+        }
+
+        if (source === "result") {
+          const resultFrom = params.get("resultFrom") || "result";
+          window.location.href = `result-1.html?from=${encodeURIComponent(resultFrom)}`;
+          return;
+        }
+
+        window.history.back();
+      });
+
+      document.querySelector("#nextButton").addEventListener("click", () => {
+        showToast("이후 청약 프로세스는<br />기존 프로세스와 동일합니다");
+      });
+
+      document.querySelector("#homeButton").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>

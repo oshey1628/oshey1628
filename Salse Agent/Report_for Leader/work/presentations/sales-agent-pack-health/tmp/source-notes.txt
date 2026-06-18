@@ -1,0 +1,4 @@
+Source: User-provided prompt in current Codex thread, dated 2026-06-17.
+Used claims: Pack Health Insurance signup growth objective; Sales Agent title; three staged Agents and their described roles.
+No external statistics, screenshots, logos, or product UI assets were used.
+All metrics are proposed validation metrics, not claimed current performance.

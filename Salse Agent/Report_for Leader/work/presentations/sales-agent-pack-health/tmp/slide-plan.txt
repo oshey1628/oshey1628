@@ -1,0 +1,8 @@
+Mode: create.
+Audience: Samsung Life digital organization leadership / report page.
+Slide count: 3.
+Slide 1: strategic framing and conversion hypothesis.
+Slide 2: three-stage Sales Agent service structure.
+Slide 3: MVP experiment, metrics, and guardrails.
+Style: deep navy foundation (#071C3A), Samsung-like blue accent (#1167D8), mint and amber for agent states; Noto Sans KR; editable shapes only.
+Typography update: all authored font sizes are scaled by 10% with a minimum of 18px, approximately 13pt.

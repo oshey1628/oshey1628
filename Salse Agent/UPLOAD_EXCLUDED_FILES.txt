@@ -1,0 +1,6 @@
+﻿Excluded for safe GitHub upload:
+- .env
+- memo\api설정.txt
+- ref docs\api설정.txt
+- any .vercel folders
+- Office temporary lock files (~$*.pptx)

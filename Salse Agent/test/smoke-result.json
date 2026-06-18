@@ -1,0 +1,885 @@
+{
+  "executedAt": "2026-06-17T06:00:54.376Z",
+  "totalCases": 12,
+  "passedCases": 12,
+  "failedCases": 0,
+  "failedIds": [],
+  "results": [
+    {
+      "id": "S01",
+      "age": "20대 이하",
+      "gender": "남성",
+      "premium": "3~5만원",
+      "need": "암",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 암보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "암치료 (통합)",
+            "프리미엄 암치료 (항암중입자)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 49,800 원",
+          "expectedPriceText": "월 49,800원",
+          "priceOkBefore": true,
+          "resultPrice": "49,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "암치료 (통합 비금여포함)",
+            "프리미엄 암치료 (고액 3종)",
+            "프리미엄 암치료 (정밀치료)"
+          ],
+          "modalPrice": "월 45,600 원",
+          "expectedPriceText": "월 45,600원",
+          "priceOkBefore": true,
+          "resultPrice": "45,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합소액암)",
+            "암진단 (갑상선암 등 소액암)",
+            "암치료 (소액암)",
+            "암치료 (항암 방사선 치료)"
+          ],
+          "modalPrice": "월 39,900 원",
+          "expectedPriceText": "월 39,900원",
+          "priceOkBefore": true,
+          "resultPrice": "39,900",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "39,900"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S02",
+      "age": "20대 이하",
+      "gender": "여성",
+      "premium": "5~10만원",
+      "need": "뇌심장",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 뇌·심보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 진단 (심장질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 복합)"
+          ],
+          "modalPrice": "월 95,072 원",
+          "expectedPriceText": "월 95,072원",
+          "priceOkBefore": true,
+          "resultPrice": "95,072",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 88,527 원",
+          "expectedPriceText": "월 88,527원",
+          "priceOkBefore": true,
+          "resultPrice": "88,527",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (부정맥)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 63,996 원",
+          "expectedPriceText": "월 63,996원",
+          "priceOkBefore": true,
+          "resultPrice": "63,996",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "63,996"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S03",
+      "age": "30대",
+      "gender": "남성",
+      "premium": "10~15만원",
+      "need": "치매",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 치매보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (통합치료 레켐비 등)",
+            "치매 (통원치료)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 128,400 원",
+          "expectedPriceText": "월 128,400원",
+          "priceOkBefore": true,
+          "resultPrice": "128,400",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (진단 당뇨발병후)",
+            "치매 (통합치료 레켐비 등)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 114,800 원",
+          "expectedPriceText": "월 114,800원",
+          "priceOkBefore": true,
+          "resultPrice": "114,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단 당뇨발병후)",
+            "치매 (통원치료)",
+            "간병 (간호간병서비스)",
+            "입원 (2~3인실 입원)"
+          ],
+          "modalPrice": "월 102,600 원",
+          "expectedPriceText": "월 102,600원",
+          "priceOkBefore": true,
+          "resultPrice": "102,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "102,600"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S04",
+      "age": "30대",
+      "gender": "여성",
+      "premium": "15만원 이상",
+      "need": "골고루",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 균형보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "뇌/심장 진단 (뇌혈관질환)",
+            "치매 (진단)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 168,000 원",
+          "expectedPriceText": "월 168,000원",
+          "priceOkBefore": true,
+          "resultPrice": "168,000",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "뇌/심장 진단 (심장질환)",
+            "치매 (통합치료 레켐비 등)",
+            "암치료 (통합)"
+          ],
+          "modalPrice": "월 151,200 원",
+          "expectedPriceText": "월 151,200원",
+          "priceOkBefore": true,
+          "resultPrice": "151,200",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암치료 (치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "치매 (통원치료)",
+            "수술 (질병/사고 수술)"
+          ],
+          "modalPrice": "월 139,600 원",
+          "expectedPriceText": "월 139,600원",
+          "priceOkBefore": true,
+          "resultPrice": "139,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "139,600"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S05",
+      "age": "40대",
+      "gender": "남성",
+      "premium": "5~10만원",
+      "need": "암",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 암보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "암치료 (통합)",
+            "프리미엄 암치료 (항암중입자)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 95,072 원",
+          "expectedPriceText": "월 95,072원",
+          "priceOkBefore": true,
+          "resultPrice": "95,072",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "암치료 (통합 비금여포함)",
+            "프리미엄 암치료 (고액 3종)",
+            "프리미엄 암치료 (정밀치료)"
+          ],
+          "modalPrice": "월 88,527 원",
+          "expectedPriceText": "월 88,527원",
+          "priceOkBefore": true,
+          "resultPrice": "88,527",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합소액암)",
+            "암진단 (갑상선암 등 소액암)",
+            "암치료 (소액암)",
+            "암치료 (항암 방사선 치료)"
+          ],
+          "modalPrice": "월 63,996 원",
+          "expectedPriceText": "월 63,996원",
+          "priceOkBefore": true,
+          "resultPrice": "63,996",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "63,996"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S06",
+      "age": "40대",
+      "gender": "여성",
+      "premium": "3~5만원",
+      "need": "뇌심장",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 뇌·심보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 진단 (심장질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 복합)"
+          ],
+          "modalPrice": "월 49,800 원",
+          "expectedPriceText": "월 49,800원",
+          "priceOkBefore": true,
+          "resultPrice": "49,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 45,600 원",
+          "expectedPriceText": "월 45,600원",
+          "priceOkBefore": true,
+          "resultPrice": "45,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (부정맥)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 39,900 원",
+          "expectedPriceText": "월 39,900원",
+          "priceOkBefore": true,
+          "resultPrice": "39,900",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "39,900"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S07",
+      "age": "50대 이상",
+      "gender": "남성",
+      "premium": "15만원 이상",
+      "need": "치매",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 치매보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (통합치료 레켐비 등)",
+            "치매 (통원치료)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 168,000 원",
+          "expectedPriceText": "월 168,000원",
+          "priceOkBefore": true,
+          "resultPrice": "168,000",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (진단 당뇨발병후)",
+            "치매 (통합치료 레켐비 등)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 151,200 원",
+          "expectedPriceText": "월 151,200원",
+          "priceOkBefore": true,
+          "resultPrice": "151,200",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단 당뇨발병후)",
+            "치매 (통원치료)",
+            "간병 (간호간병서비스)",
+            "입원 (2~3인실 입원)"
+          ],
+          "modalPrice": "월 139,600 원",
+          "expectedPriceText": "월 139,600원",
+          "priceOkBefore": true,
+          "resultPrice": "139,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "139,600"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S08",
+      "age": "50대 이상",
+      "gender": "여성",
+      "premium": "10~15만원",
+      "need": "골고루",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 균형보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "뇌/심장 진단 (뇌혈관질환)",
+            "치매 (진단)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 128,400 원",
+          "expectedPriceText": "월 128,400원",
+          "priceOkBefore": true,
+          "resultPrice": "128,400",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "뇌/심장 진단 (심장질환)",
+            "치매 (통합치료 레켐비 등)",
+            "암치료 (통합)"
+          ],
+          "modalPrice": "월 114,800 원",
+          "expectedPriceText": "월 114,800원",
+          "priceOkBefore": true,
+          "resultPrice": "114,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암치료 (치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "치매 (통원치료)",
+            "수술 (질병/사고 수술)"
+          ],
+          "modalPrice": "월 102,600 원",
+          "expectedPriceText": "월 102,600원",
+          "priceOkBefore": true,
+          "resultPrice": "102,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "102,600"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S09",
+      "age": "30대",
+      "gender": "남성",
+      "premium": "3~5만원",
+      "need": "뇌심장",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 뇌·심보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 진단 (심장질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 복합)"
+          ],
+          "modalPrice": "월 49,800 원",
+          "expectedPriceText": "월 49,800원",
+          "priceOkBefore": true,
+          "resultPrice": "49,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (뇌혈관질환)",
+            "뇌/심장 치료 (순환계 통합)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 45,600 원",
+          "expectedPriceText": "월 45,600원",
+          "priceOkBefore": true,
+          "resultPrice": "45,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "뇌/심장 진단 (부정맥)",
+            "뇌/심장 치료 (순환계 치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "뇌/심장 진단 (심장질환)"
+          ],
+          "modalPrice": "월 39,900 원",
+          "expectedPriceText": "월 39,900원",
+          "priceOkBefore": true,
+          "resultPrice": "39,900",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "39,900"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S10",
+      "age": "40대",
+      "gender": "여성",
+      "premium": "15만원 이상",
+      "need": "암",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 암보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "암치료 (통합)",
+            "프리미엄 암치료 (항암중입자)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 168,000 원",
+          "expectedPriceText": "월 168,000원",
+          "priceOkBefore": true,
+          "resultPrice": "168,000",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "암치료 (통합 비금여포함)",
+            "프리미엄 암치료 (고액 3종)",
+            "프리미엄 암치료 (정밀치료)"
+          ],
+          "modalPrice": "월 151,200 원",
+          "expectedPriceText": "월 151,200원",
+          "priceOkBefore": true,
+          "resultPrice": "151,200",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합소액암)",
+            "암진단 (갑상선암 등 소액암)",
+            "암치료 (소액암)",
+            "암치료 (항암 방사선 치료)"
+          ],
+          "modalPrice": "월 139,600 원",
+          "expectedPriceText": "월 139,600원",
+          "priceOkBefore": true,
+          "resultPrice": "139,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "139,600"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S11",
+      "age": "50대 이상",
+      "gender": "남성",
+      "premium": "5~10만원",
+      "need": "골고루",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 균형보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (일반암)",
+            "뇌/심장 진단 (뇌혈관질환)",
+            "치매 (진단)",
+            "프리미엄 암치료 (약물,방사선)"
+          ],
+          "modalPrice": "월 95,072 원",
+          "expectedPriceText": "월 95,072원",
+          "priceOkBefore": true,
+          "resultPrice": "95,072",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암진단 (통합암)",
+            "뇌/심장 진단 (심장질환)",
+            "치매 (통합치료 레켐비 등)",
+            "암치료 (통합)"
+          ],
+          "modalPrice": "월 88,527 원",
+          "expectedPriceText": "월 88,527원",
+          "priceOkBefore": true,
+          "resultPrice": "88,527",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "암치료 (치료)",
+            "뇌/심장 치료 (순환계 특정)",
+            "치매 (통원치료)",
+            "수술 (질병/사고 수술)"
+          ],
+          "modalPrice": "월 63,996 원",
+          "expectedPriceText": "월 63,996원",
+          "priceOkBefore": true,
+          "resultPrice": "63,996",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "63,996"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "id": "S12",
+      "age": "20대 이하",
+      "gender": "여성",
+      "premium": "10~15만원",
+      "need": "치매",
+      "actions": [
+        {
+          "action": "R1",
+          "pass": true,
+          "title": "강력한 치매보장 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (통합치료 레켐비 등)",
+            "치매 (통원치료)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 128,400 원",
+          "expectedPriceText": "월 128,400원",
+          "priceOkBefore": true,
+          "resultPrice": "128,400",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R2",
+          "pass": true,
+          "title": "균형잡힌 보장을 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단)",
+            "치매 (진단 당뇨발병후)",
+            "치매 (통합치료 레켐비 등)",
+            "간병 (간병인 180일 이전)"
+          ],
+          "modalPrice": "월 114,800 원",
+          "expectedPriceText": "월 114,800원",
+          "priceOkBefore": true,
+          "resultPrice": "114,800",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "R3",
+          "pass": true,
+          "title": "실속형 보장으로 선택!",
+          "titleOk": true,
+          "relevant": true,
+          "benefitPreview": [
+            "치매 (진단 당뇨발병후)",
+            "치매 (통원치료)",
+            "간병 (간호간병서비스)",
+            "입원 (2~3인실 입원)"
+          ],
+          "modalPrice": "월 102,600 원",
+          "expectedPriceText": "월 102,600원",
+          "priceOkBefore": true,
+          "resultPrice": "102,600",
+          "resultPriceOk": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=modal"
+        },
+        {
+          "action": "D",
+          "pass": true,
+          "resultUrl": "file:///C:/Users/user/Desktop/AI%20assistant%20for%20Pack/codex-current/files-mentioned-by-the-user-pptx/outputs/pack-ai-agent-stage1/result-1.html?from=direct",
+          "resultPrice": "102,600"
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

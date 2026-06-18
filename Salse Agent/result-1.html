@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>팩 건강보험 계산결과</title>
+    <link rel="stylesheet" href="assets/fonts/noto-sans-kr.css" />
+    <style>
+      :root {
+        --white: #ffffff;
+        --blue: #2f86ee;
+        --blue-deep: #1772ea;
+        --blue-soft: #edf5ff;
+        --text: #171b26;
+        --muted: #7d8798;
+        --app-safe-top: env(safe-area-inset-top, 0px);
+        --app-safe-bottom: env(safe-area-inset-bottom, 0px);
+        --app-viewport-height: 100svh;
+      }
+
+      @supports (height: 100dvh) {
+        :root {
+          --app-viewport-height: 100dvh;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      button {
+        margin: 0;
+        font-family: "Noto Sans KR", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        min-height: var(--app-viewport-height);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(180deg, #edf7ff 0%, #ffffff 100%);
+        overflow: hidden;
+      }
+
+      .stage {
+        --header-height: 96px;
+        --cta-height: 146px;
+        width: min(100vw, 430px);
+        height: min(var(--app-viewport-height), 932px);
+        min-height: 720px;
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 28px;
+        box-shadow: 0 24px 80px rgba(15, 67, 125, 0.18);
+        animation: pageSlideIn 280ms cubic-bezier(0.2, 0.82, 0.22, 1) both;
+      }
+
+      @keyframes pageSlideIn {
+        from {
+          opacity: 0.72;
+          transform: translateX(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .app-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 4;
+        height: var(--header-height);
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid rgba(220, 228, 238, 0.72);
+        backdrop-filter: blur(12px);
+      }
+
+      .status-bar {
+        height: 34px;
+        padding: 8px 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #222734;
+        font-size: 14px;
+      }
+
+      .status-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #303744;
+        font-size: 12px;
+      }
+
+      .battery {
+        min-width: 26px;
+        height: 17px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 9px;
+        background: #555b66;
+        color: #fff;
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .nav-bar {
+        height: 62px;
+        padding: 4px 16px 14px;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr) 58px;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-button {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      .icon-button::before {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-left: 1.8px solid currentColor;
+        border-bottom: 1.8px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .header-title {
+        min-width: 0;
+        color: var(--text);
+        font-size: 17px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .consult-button {
+        width: 58px;
+        height: 38px;
+        padding: 0;
+        border: 1px solid #dfe5ec;
+        border-radius: 999px;
+        background: #fff;
+        color: #2f3542;
+        font-size: 15px;
+      }
+
+      .result-scroll {
+        height: 100%;
+        padding-top: var(--header-height);
+        padding-bottom: calc(var(--cta-height) + 20px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        background: #fff;
+      }
+
+      .result-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .result-top {
+        padding: 18px 16px 0;
+      }
+
+      .summary-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .summary-title {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        color: var(--text);
+        line-height: 1.2;
+        min-width: 0;
+      }
+
+      .summary-title strong {
+        font-size: 20px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .summary-title span {
+        color: #8d97a8;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .feature-button {
+        min-width: 98px;
+        height: 38px;
+        padding: 0 14px;
+        border: 1px solid #dfe5ec;
+        border-radius: 999px;
+        background: #fff;
+        color: #444d5f;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .summary-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        align-items: center;
+        gap: 10px;
+        padding: 0 4px 12px;
+        border-bottom: 1px solid #edf1f6;
+      }
+
+      .tab-label {
+        color: #7c8698;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .tab-label em {
+        font-style: italic;
+        font-size: 17px;
+        color: #6c7384;
+      }
+
+      .tab-self {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border: 2px solid transparent;
+        border-radius: 999px;
+        background:
+          linear-gradient(#fff, #fff) padding-box,
+          linear-gradient(135deg, #41a0ff 0%, #ff5aa8 100%) border-box;
+        color: #2e3b4c;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .guide-pill {
+        margin-top: 16px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: #f3f7fd;
+        color: #5b6475;
+        font-size: 15px;
+      }
+
+      .guide-pill::before {
+        content: "👉";
+        margin-right: 8px;
+      }
+
+      .primary-card {
+        margin-top: 14px;
+        padding: 14px 18px 16px;
+        border-radius: 24px;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .primary-card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .self-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--blue-deep);
+        font-size: 14px;
+      }
+
+      .primary-price {
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+        gap: 4px;
+        margin-top: 16px;
+        white-space: nowrap;
+      }
+
+      .primary-price .prefix,
+      .primary-price .unit {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .primary-price .amount {
+        font-size: 31px;
+        line-height: 0.95;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .primary-note {
+        margin-top: 10px;
+        color: #f7ef8d;
+        font-size: 13px;
+        text-align: right;
+      }
+
+      .primary-meta {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 14px;
+        text-align: right;
+      }
+
+      .benefit-card {
+        margin-top: 12px;
+        padding: 14px 16px 16px;
+        border-radius: 22px;
+        background: #f3f7fd;
+      }
+
+      .benefit-copy {
+        margin: 0;
+        color: #657083;
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .benefit-copy strong {
+        color: var(--blue-deep);
+        font-weight: 400;
+      }
+
+      .benefit-row {
+        margin-top: 12px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .benefit-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #1f2734;
+        font-size: 15px;
+      }
+
+      .benefit-label::before {
+        content: "%";
+        width: 18px;
+        height: 18px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 4px;
+        background: #4ea2ff;
+        color: #fff;
+        font-size: 11px;
+        line-height: 1;
+      }
+
+      .benefit-price {
+        display: flex;
+        align-items: baseline;
+        gap: 3px;
+        color: var(--blue);
+        white-space: nowrap;
+      }
+
+      .benefit-price .amount {
+        font-size: 19px;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      .benefit-price .unit {
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .result-body-wrap {
+        position: relative;
+        margin-top: 20px;
+        overflow: hidden;
+        aspect-ratio: 400 / 4360;
+      }
+
+      .result-body-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transform: translateY(-11.4%);
+        margin-bottom: 0;
+      }
+
+      .result-cta {
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 5;
+        height: var(--cta-height);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 8px;
+        background: #fff;
+      }
+
+      .result-cta img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .result-cta button {
+        position: absolute;
+        top: 12px;
+        height: 72px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .save-result {
+        left: 24px;
+        width: calc(50% - 32px);
+      }
+
+      .start-apply {
+        right: 24px;
+        width: calc(50% - 32px);
+      }
+
+      .toast {
+        position: absolute;
+        left: 50%;
+        bottom: 162px;
+        z-index: 6;
+        min-width: 220px;
+        max-width: calc(100% - 40px);
+        padding: 13px 14px;
+        border-radius: 14px;
+        background: #13233a;
+        color: #fff;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.45;
+        opacity: 0;
+        transform: translateX(-50%) translateY(8px);
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .home-hit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 7;
+        width: 88px;
+        height: 88px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      @media (max-width: 480px) {
+        .stage {
+          width: 100vw;
+          height: var(--app-viewport-height);
+          min-height: var(--app-viewport-height);
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage" aria-label="계산결과 화면">
+      <button class="home-hit" id="homeButton" aria-label="상품상세페이지로 이동"></button>
+      <header class="app-header">
+        <div class="status-bar" aria-hidden="true">
+          <span>SKT 3:58</span>
+          <div class="status-icons">
+            <span>5G</span>
+            <span class="battery">81</span>
+          </div>
+        </div>
+        <div class="nav-bar">
+          <button class="icon-button" id="backButton" aria-label="뒤로가기"></button>
+          <div class="header-title">팩 건강보험</div>
+          <button class="consult-button" type="button">상담</button>
+        </div>
+      </header>
+
+      <section class="result-scroll">
+        <div class="result-top">
+          <div class="summary-head">
+            <div class="summary-title">
+              <strong>보험 계산 결과</strong>
+              <span id="resultAgeGender">45세 | 남성</span>
+            </div>
+            <button class="feature-button" type="button">상품 특징점</button>
+          </div>
+
+          <div class="summary-tabs" aria-hidden="true">
+            <div class="tab-label">인기 <em>Hot</em></div>
+            <div class="tab-label">인기 <em>Lite</em></div>
+            <div class="tab-self">🪄 셀프</div>
+          </div>
+
+          <div class="guide-pill">내가 직접 설계하는 나만의 보험</div>
+
+          <section class="primary-card" aria-label="선택 보험료 요약">
+            <div class="primary-card-top">
+              <span class="self-badge">셀프</span>
+              <div></div>
+            </div>
+            <div class="primary-price">
+              <span class="prefix">월</span>
+              <span class="amount" id="resultMonthlyPrice">95,072</span>
+              <span class="unit">원</span>
+            </div>
+            <div class="primary-note">오프라인 상품 보다 약 4.2% 저렴</div>
+            <div class="primary-meta">보험기간 100세 / 납입기간 20년</div>
+          </section>
+
+          <section class="benefit-card" aria-label="최대혜택가 안내">
+            <p class="benefit-copy">
+              10년 내 입원/수술 이력이 없다면?
+              <strong>월보험료를 20% 더 할인</strong>해드려요.
+            </p>
+            <div class="benefit-row">
+              <div class="benefit-label">최대혜택가</div>
+              <div class="benefit-price">
+                <span class="amount" id="resultBenefitPrice">76,057</span>
+                <span class="unit">원</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="result-body-wrap">
+          <img class="result-body-image" src="assets/result-body.png" alt="계산결과 본문" />
+        </div>
+      </section>
+
+      <section class="result-cta" aria-label="계산결과 하단 CTA">
+        <img src="assets/result-cta.jpg" alt="계산결과 저장하기와 가입하기 버튼" />
+        <button class="save-result" id="saveResult" aria-label="계산결과 저장하기"></button>
+        <button class="start-apply" id="startApply" aria-label="가입하기"></button>
+      </section>
+
+      <div class="toast" id="toast">계산결과 저장 기능은 다음 단계에서 연결할 수 있어요.</div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const toast = document.querySelector("#toast");
+      const monthlyPriceElement = document.querySelector("#resultMonthlyPrice");
+      const benefitPriceElement = document.querySelector("#resultBenefitPrice");
+      const ageGenderElement = document.querySelector("#resultAgeGender");
+
+      function formatNumber(value) {
+        return new Intl.NumberFormat("ko-KR").format(value);
+      }
+
+      function parseNumber(value) {
+        return Number(String(value || "").replace(/[^0-9]/g, ""));
+      }
+
+      function getDisplayAge(birth) {
+        if (!/^\d{8}$/.test(birth || "")) return "45세";
+        const birthYear = Number(String(birth).slice(0, 4));
+        return `${new Date().getFullYear() - birthYear}세`;
+      }
+
+      function applyResultPrices() {
+        const raw = window.sessionStorage.getItem("packFlowState");
+        if (!raw) return;
+
+        try {
+          const saved = JSON.parse(raw);
+          const monthlyPrice = parseNumber(saved?.selectedPlan?.price);
+          const age = getDisplayAge(saved?.birth);
+          const gender = saved?.gender || "남성";
+
+          ageGenderElement.textContent = `${age} | ${gender}`;
+
+          if (!monthlyPrice) return;
+
+          const benefitPrice = Math.round(monthlyPrice * 0.8);
+          monthlyPriceElement.textContent = formatNumber(monthlyPrice);
+          benefitPriceElement.textContent = formatNumber(benefitPrice);
+        } catch (error) {
+          console.warn("Failed to restore result price state.", error);
+        }
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        window.setTimeout(() => toast.classList.remove("show"), 1800);
+      }
+
+      applyResultPrices();
+
+      document.querySelector("#backButton").addEventListener("click", () => {
+        const source = params.get("from");
+        if (document.referrer.includes("apply-step-1.html")) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        if (source === "direct") {
+          window.location.href = "index.html?restore=recommend";
+          return;
+        }
+
+        if (source === "modal") {
+          window.location.href = "index.html?restore=modal";
+          return;
+        }
+
+        if (window.history.length > 1) {
+          window.history.back();
+          return;
+        }
+
+        window.location.href = "index.html";
+      });
+
+      document.querySelector("#saveResult").addEventListener("click", () => {
+        showToast("계산결과 저장 기능은 다음 단계에서 연결할 수 있어요.");
+      });
+
+      document.querySelector("#startApply").addEventListener("click", () => {
+        const resultFrom = params.get("from") || "result";
+        window.location.href = `apply-step-1.html?from=result&resultFrom=${encodeURIComponent(resultFrom)}`;
+      });
+
+      document.querySelector("#homeButton").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
