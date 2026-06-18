@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales Agent | AXer Works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="detail" class="theme-sales">
+  <div class="page-noise" aria-hidden="true"></div>
+  <header class="site-header detail-header">
+    <a class="brand" href="index.html#works" aria-label="AXer Works로 돌아가기">
+      <span class="brand-mark"></span>
+      <span class="brand-text">AXer</span>
+    </a>
+    <nav class="main-nav" aria-label="상세 페이지 메뉴">
+      <a href="index.html#works">Works</a>
+      <a href="#journey">Journey</a>
+      <a href="#metrics">Metrics</a>
+    </nav>
+  </header>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress__bar"></span>
+  </div>
+
+  <main class="detail-shell">
+    <section class="detail-hero reveal" id="top" data-outline="SALES AGENT">
+      <div class="detail-copy">
+        <span class="eyebrow">Digital Business Division</span>
+        <h1><span class="hero-title-flow">Sales Agent</span></h1>
+        <p class="lead">
+          디지털보험 탐색부터 가입 완료까지 고객과 동행하며, 설명 부족과 이해 부족 때문에 생기는 이탈을 줄이는 AX 과제입니다.
+        </p>
+        <p class="lead">
+          3개의 Agent가 각각 탐색, 이해, 청약완주 단계를 맡고, 이 흐름 전체가 하나의 Sales Agent 경험으로 연결됩니다.
+        </p>
+      </div>
+      <div class="detail-visual sales-visual" data-parallax>
+        <div class="agent-system" aria-label="3개의 Agent가 합쳐져 Sales Agent를 구성하는 구조">
+          <div class="agent-lane agent-lane--one tilt-card">
+            <span class="card-kicker">Agent 01</span>
+            <strong>맞춤설계 Agent</strong>
+            <p>고객 조건을 바탕으로 추천안 3개를 빠르게 제안합니다.</p>
+          </div>
+          <div class="agent-lane agent-lane--two tilt-card">
+            <span class="card-kicker">Agent 02</span>
+            <strong>설계이해 Agent</strong>
+            <p>어려운 보장 내용을 고객 언어로 풀어 설명합니다.</p>
+          </div>
+          <div class="agent-lane agent-lane--three tilt-card">
+            <span class="card-kicker">Agent 03</span>
+            <strong>청약완주 Agent</strong>
+            <p>막히는 단계에서 이어하기와 도움말로 완주를 돕습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section reveal" id="journey">
+      <div class="section-meta">
+        <span>01</span>
+        <p>Journey</p>
+      </div>
+      <div class="section-panel">
+        <h2 class="journey-heading">3개의 Agent가 각 병목을 맡고,<br>합쳐서 하나의 Sales Agent 경험을 만듭니다.</h2>
+        <p class="lead detail-intro">
+          고객은 한 번에 긴 보험 가입 절차를 통과하는 것이 아니라, 단계마다 다른 불안을 겪습니다. Sales Agent는 이 불안을 3개의 전문 Agent로 나눠 해결하고, 고객 입장에서는 끊기지 않는 하나의 도움 경험으로 느껴지도록 설계합니다.
+        </p>
+        <div class="journey-grid">
+          <article class="journey-card journey-card--one tilt-card">
+            <span class="step-badge">01</span>
+            <h3>맞춤설계 Agent</h3>
+            <div class="journey-visual journey-visual--image">
+              <img src="assets/sales-agent-step1.png" alt="맞춤설계 Agent 화면 예시">
+            </div>
+            <div class="proto-actions">
+              <a class="proto-link" href="https://pack-ai-agent-stage1.vercel.app" target="_blank" rel="noopener noreferrer" data-popup-link data-popup-width="384" data-popup-height="824">프로토타입 보기</a>
+              <button type="button" class="proto-link proto-link--copy" data-copy-url="https://pack-ai-agent-stage1.vercel.app">링크복사</button>
+            </div>
+            <p class="journey-title">탐색 단계에서 "나에게 맞는 상품이 무엇인지"를 바로 좁혀주는 Agent</p>
+            <p>고객의 나이, 성별, 지불 가능한 월 보험료, 집중 보장 항목을 받아 고객별 추천 설계안 3개를 제안합니다. 복잡한 셀프 계산이나 수많은 상품 비교를 먼저 요구하지 않고, 고객이 바로 검토 가능한 후보군을 보여주는 것이 핵심입니다.</p>
+            <p>즉, 탐색 초반의 피로를 줄이고 보험료 확인 단계까지 더 빠르게 진입하게 만들어 가입 여정의 첫 병목을 줄입니다.</p>
+            <ul class="tag-list">
+              <li>#추천안 3개 제안</li>
+              <li>#셀프계산 단계 축소</li>
+              <li>#보험료 확인 유도</li>
+            </ul>
+          </article>
+          <article class="journey-card journey-card--two tilt-card">
+            <span class="step-badge">02</span>
+            <h3>설계이해 Agent</h3>
+            <div class="journey-visual journey-visual--image">
+              <img src="assets/sales-agent-step2.png" alt="설계이해 Agent 화면 예시">
+            </div>
+            <div class="proto-actions">
+              <a class="proto-link" href="https://sli-knowledge-agent-v2.vercel.app/sli_knowledge_agent/" target="_blank" rel="noopener noreferrer" data-popup-link data-popup-width="384" data-popup-height="824">프로토타입 보기</a>
+              <button type="button" class="proto-link proto-link--copy" data-copy-url="https://sli-knowledge-agent-v2.vercel.app/sli_knowledge_agent/">링크복사</button>
+            </div>
+            <p class="journey-title">이해 단계에서 "무슨 뜻인지 모르겠다"는 불안을 풀어주는 Agent</p>
+            <p>보험 용어, 보장 항목, 제한사항, 추천 근거를 고객이 이해하기 쉬운 언어로 다시 설명합니다. 고객이 설계를 스스로 조정하고 싶어도 용어를 이해하지 못해 멈추는 상황을 줄이고, 납득 가능한 판단을 돕는 역할을 맡습니다.</p>
+            <p>결국 이 Agent는 단순 안내가 아니라, 가입 여부 최종 판단 직전에 생기는 이해 장벽을 낮춰 긍정적인 결정 가능성을 높이는 장치입니다.</p>
+            <ul class="tag-list">
+              <li>#보험용어 쉬운 설명</li>
+              <li>#보장 의미 해석</li>
+              <li>#추천 근거 안내</li>
+            </ul>
+          </article>
+          <article class="journey-card journey-card--three tilt-card">
+            <span class="step-badge">03</span>
+            <h3>청약완주 Agent</h3>
+            <div class="journey-visual journey-visual--tbd" aria-hidden="true">
+              <span>TBD</span>
+            </div>
+            <div class="proto-actions">
+              <button type="button" class="proto-link proto-link--disabled" aria-disabled="true">프로토타입 보기</button>
+              <button type="button" class="proto-link proto-link--disabled" aria-disabled="true">링크복사</button>
+            </div>
+            <p class="journey-title">가입 단계에서 "여기서 막히면 포기한다"는 순간을 넘기게 돕는 Agent</p>
+            <p>청약 과정 중 입력, 인증, 동의, 제출 단계에서 막히는 부분의 도움말을 제공하고, 이탈 시 임시저장이나 이어서 진행하는 방법을 안내합니다. 고객이 중간에 흐름을 잃지 않도록 인내심 있게 완주를 독려하는 것이 중요합니다.</p>
+            <p>이 Agent는 단순 FAQ가 아니라, 실제 청약 완결까지 고객을 끌고 가는 마지막 완주 보조 장치로 작동합니다.</p>
+            <ul class="tag-list">
+              <li>#막힘 단계 도움말</li>
+              <li>#임시저장/이어하기</li>
+              <li>#완주율 개선</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section reveal">
+      <div class="section-meta">
+        <span>02</span>
+        <p>Experiment</p>
+      </div>
+      <div class="section-panel experiment-panel">
+        <article class="experiment-card tilt-card">
+          <span class="card-kicker">Recommended MVP</span>
+          <h2 class="experiment-heading">첫 실험은 설계추천/설명 Agent부터</h2>
+          <p>가입 완료까지 한 번에 바꾸기보다, 보험료 확인 완료율과 가입 시작률에 먼저 직접 영향을 주는 구간을 공략합니다.</p>
+        </article>
+        <article class="experiment-card tilt-card">
+          <span class="card-kicker">How to validate</span>
+          <h2 class="experiment-heading">퍼널률(계산률, 청약률) 효과 검증</h2>
+          <p>상품페이지에서 청약프로세스 진입까지의 청약 진입률의 향상 검증</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="detail-section reveal" id="metrics">
+      <div class="section-meta">
+        <span>03</span>
+        <p>Metrics</p>
+        </div>
+        <div class="section-panel metric-board">
+          <div class="metric-cluster">
+            <h2 class="metric-heading">퍼널률 중심으로 효과를 검증하고,<br>가드레일과 거버넌스 준수로 보안을 강화</h2>
+            <div class="metric-pills">
+              <span>주요 지표: 가입 완료율</span>
+              <span>보조 지표: 보험료 확인 완료율</span>
+            <span>보조 지표: 가입 시작률</span>
+            <span>가드레일: 오해 문의/민원</span>
+          </div>
+        </div>
+        <div class="next-actions">
+          <h3>다음 액션</h3>
+          <ol>
+            <li>현재 탐색 단계 퍼널 데이터 재점검</li>
+            <li>추천/설명 Agent MVP 설계</li>
+            <li>가드레일 문구와 심의 포인트 사전 점검</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html#works">AXer Works로 돌아가기</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
