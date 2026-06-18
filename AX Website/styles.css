@@ -143,6 +143,11 @@ img {
   gap: 8px;
 }
 
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
 .main-nav a {
   position: relative;
   padding: 10px 14px;
@@ -167,6 +172,66 @@ img {
 
 .detail-header .main-nav a.is-active,
 .detail-header .main-nav a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+}
+
+.nav-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  z-index: 30;
+  min-width: 220px;
+  padding: 8px;
+  display: grid;
+  gap: 6px;
+  border-radius: 18px;
+  border: 1px solid rgba(17,20,25,0.1);
+  background: rgba(255,255,255,0.88);
+  box-shadow: 0 18px 48px rgba(20,26,38,0.14);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+.nav-dropdown:hover .nav-dropdown__menu,
+.nav-dropdown:focus-within .nav-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.nav-dropdown__menu a {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: rgba(17,20,25,0.82);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.nav-dropdown__menu a:hover,
+.nav-dropdown__menu a:focus-visible {
+  color: var(--ink);
+  background: linear-gradient(90deg, rgba(159,210,255,0.24), rgba(174,238,220,0.2), rgba(255,182,215,0.18));
+}
+
+.detail-header .nav-dropdown__menu {
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(24,28,38,0.9);
+  box-shadow: 0 18px 48px rgba(3,7,16,0.26);
+}
+
+.detail-header .nav-dropdown__menu a {
+  color: rgba(245,247,251,0.86);
+}
+
+.detail-header .nav-dropdown__menu a:hover,
+.detail-header .nav-dropdown__menu a:focus-visible {
   color: #fff;
   background: rgba(255,255,255,0.12);
 }
@@ -1770,6 +1835,17 @@ h3 {
   .main-nav a {
     padding: 8px 10px;
     font-size: 13px;
+  }
+
+  .nav-dropdown__menu {
+    left: 0;
+    min-width: min(220px, calc(100vw - 48px));
+    transform: translate(0, -6px);
+  }
+
+  .nav-dropdown:hover .nav-dropdown__menu,
+  .nav-dropdown:focus-within .nav-dropdown__menu {
+    transform: translate(0, 0);
   }
 
   .story-shell,
